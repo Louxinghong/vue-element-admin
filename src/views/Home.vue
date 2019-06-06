@@ -76,15 +76,15 @@ export default {
       ],
       tableData: [{
         applyDate: '2016-05-03',
-        userName: '王小虎',
+        userName: '小红',
         userPhone: '13788889999'
       }, {
         applyDate: '2016-05-02',
-        userName: '王小虎',
+        userName: '小明',
         userPhone: '13788889999'
       }, {
         applyDate: '2016-05-04',
-        userName: '王小虎',
+        userName: '小兰',
         userPhone: '13788889999'
       }],
       loading: true
