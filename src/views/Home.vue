@@ -76,7 +76,7 @@ export default {
       ],
       tableData: [{
         applyDate: '2016-05-03',
-        userName: '小红',
+        userName: '小红123123',
         userPhone: '13788889999'
       }, {
         applyDate: '2016-05-02',
