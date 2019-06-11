@@ -4,6 +4,7 @@
     <table-view mytableviewcontent="woho~ big big world">
     	<template v-slot:my_content>
     		<el-button type="danger">戳我</el-button>
+        
         <el-dropdown>
           <el-button type="text" icon="el-icon-circle-close"></el-button>
             <template v-slot:dropdown>
@@ -12,6 +13,15 @@
                 <el-dropdown-item command="closeAll">关闭所有</el-dropdown-item>
               </el-dropdown-menu>
             </template>
+        </el-dropdown>
+
+        <el-dropdown>
+          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>查看</el-dropdown-item>
+            <el-dropdown-item>新增</el-dropdown-item>
+            <el-dropdown-item>删除</el-dropdown-item>
+          </el-dropdown-menu>
         </el-dropdown>
     	</template>
     </table-view>
@@ -41,6 +51,7 @@
     <div>123</div>
     <div>123</div>
     <div>123</div>
+    
   
     <setting-panel></setting-panel>
     <back-to-top></back-to-top>

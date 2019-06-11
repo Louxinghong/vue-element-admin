@@ -29,14 +29,14 @@
 		data(){
 			return {
 				value1: true,
-        value2: true
+        value2: false
 			}
 		}
 		
 	};
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 #tpl-of-switch > * {
 	margin-top: 10px;
 }

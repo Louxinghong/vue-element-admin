@@ -52,8 +52,13 @@ export default {
         background: rgb(145, 144, 144);
         right: 40px;
         bottom: 40px;
-        padding: 8px 10px;
+        text-align: center;
+        line-height: 40px;
         color: white;
         cursor: pointer;
+
+        &:hover {
+            background: crimson;
+        }
     }
 </style>
