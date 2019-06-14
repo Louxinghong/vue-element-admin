@@ -51,10 +51,6 @@
     <div>123</div>
     <div>123</div>
     <div>123</div>
-    
-  
-    <setting-panel></setting-panel>
-    <back-to-top></back-to-top>
   </div>
 </template>
 
