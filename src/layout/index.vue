@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="less" >
+<style lang="less">
 @isCollapse: 62px;
 @notCollapse: 250px;
 
@@ -62,7 +62,6 @@ export default {
             .el-menu {
                 height: 100%;
                 width: 100% !important;
-
             }
         }
     }
@@ -84,10 +83,7 @@ export default {
 
         .side-container {
             width: @isCollapse;
-
-            
             .el-menu--collapse {
- 
                 .el-submenu {
                     .el-submenu__title {
                         span {
@@ -103,9 +99,7 @@ export default {
                         }
                     }
                 }
-
             }
-
         }
     }
 }
