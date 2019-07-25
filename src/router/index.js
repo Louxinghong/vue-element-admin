@@ -37,7 +37,18 @@ export const routes = [
           import(
             /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/index.vue'
           ),
-        meta: { title: '我的简历' }
+        meta: { title: '我的简历' },
+        children: [
+          {
+            path: 'my-info',
+            name: 'PersonInfoCurriculumVitaeMyinfo',
+            component: () =>
+              import(
+                /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'
+              ),
+            meta: { title: '备份' }
+          }
+        ]
       }
     ]
   }
