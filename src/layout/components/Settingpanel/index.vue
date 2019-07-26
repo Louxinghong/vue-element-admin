@@ -8,33 +8,31 @@
         <h3 class="panel-title">系统配置</h3>
 
         <div class="panel-item">
-          <span>启用标签栏</span>
-          <el-switch class="panel-switch" v-model="panel_tag"/>
+          <span>隐藏侧栏文字</span>
+          <el-switch class="panel-switch" v-model="isCollapse"/>
         </div>
 
-        <div class="panel-item">
-          <span>固定头部</span>
-          <el-switch class="panel-switch" v-model="panel_fixed"/>
-        </div>
-
-        <div class="panel-item">
-          <span>侧边栏按钮</span>
-          <el-switch class="panel-switch" v-model="panel_side"/>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'SettingPanel',
   data() {
     return {
       show: false,
-      panel_tag: false,
-      panel_fixed: false,
-      panel_side: false
+      isCollapse: false,
+    }
+  },
+  methods: {
+    ...mapActions('status',['changeStatus']),
+  },
+  watch: {
+    isCollapse() {
+      this.changeStatus()
     }
   }
 }

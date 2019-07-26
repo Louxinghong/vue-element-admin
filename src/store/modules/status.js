@@ -17,7 +17,7 @@ export default {
     }
   },
   actions: {
-    changestatus({commit}){
+    changeStatus({commit}) {
       commit('CHANGESTATUS');
     }
   }

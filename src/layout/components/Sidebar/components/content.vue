@@ -1,8 +1,8 @@
 <template>
   <div class="menu-wrapper">
-    <el-submenu v-if="hasChildren(item) && item.alwaysShow != false" :index="basepath">
+    <el-submenu v-if="hasChildren(item) && item.alwaysShow !== false" :index="basepath">
       <template slot="title">
-        <i :class="item.meta.icon != null ? item.meta.icon : ''"></i>
+        <i :class="item.meta.icon !== null ? item.meta.icon : ''"></i>
         <span slot="title">{{ item.meta.title }}</span>
       </template>
       <side-bar-item
@@ -25,7 +25,7 @@
     <template v-else-if="hasNoChildren(item)">
       <router-link :to="basepath">
         <el-menu-item :index="basepath">
-          <i :class="item.meta.icon != null ? item.meta.icon : ''"></i>
+          <i :class="item.meta.icon !== null ? item.meta.icon : ''"></i>
           <span slot="title">{{ item.meta.title }}</span>
            
         </el-menu-item>

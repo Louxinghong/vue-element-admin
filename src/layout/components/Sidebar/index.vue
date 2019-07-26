@@ -10,6 +10,7 @@
       :collapse-transition="false"
       :unique-opened="true">
       
+      <SidebarLogo></SidebarLogo>
       <SideBarContent
         v-for="route in routes"
         :key="route.path"
@@ -23,15 +24,17 @@
 <script>
 import { mapState } from 'vuex'
 import SideBarContent from './components/content'
+import SidebarLogo from './components/sidebarLogo'
 export default {
   name: 'SideBar',
   data () {
     return {
-        
+        color: ''
     }
   },
   components: {
-    SideBarContent
+    SideBarContent,
+    SidebarLogo
   },
   computed: {
     ...mapState('status',['isCollapse', 'routes']),

@@ -33,6 +33,7 @@ export const routes = [
       {
         path: 'my-curriculum-vitae',
         name: 'PersonInfoCurriculumVitae',
+        redirect: '/person-info/my-curriculum-vitae/my-info',
         component: () =>
           import(
             /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/index.vue'

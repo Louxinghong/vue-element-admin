@@ -11,6 +11,36 @@
         <h4>更新个人信息模块</h4>
       </el-card>
     </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2019/5/3~2019/6/3" placement="top" :color="unfinished">
+      <el-card>
+        <h4>更新个人信息模块</h4>
+      </el-card>
+    </el-timeline-item>
   </el-timeline>
   </div>
 </template>
@@ -21,7 +51,8 @@ export default {
   data() {
     return {
       finished: 'green',
-      unfinished: '#99a9bf'
+      unfinished: '#99a9bf',
+      data: []
     }
   }
 }

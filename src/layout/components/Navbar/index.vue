@@ -1,13 +1,16 @@
 <template>
-  <el-menu class="navbar" mode="horizontal">
-    <span class="hiddenornot" @click="changestatus"><i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i></span>
-    <el-breadcrumb separator="/" class="breadcrumb">
-      <el-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
-        <span v-if="index == breadcrumbs.length-1">{{breadcrumb.meta.title}}</span>
-        <a v-else :href="breadcrumb.meta.path">{{breadcrumb.meta.title}}</a>
-      </el-breadcrumb-item>
-    </el-breadcrumb>
-  </el-menu>
+    <div id="content">
+      <span class="hiddenornot" @click="changeStatus"><i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i></span>
+      <el-breadcrumb separator="/">
+        <transition-group name="breadcrumb">
+          <el-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
+            <span v-if="index === breadcrumbs.length-1">{{ breadcrumb.meta.title }}</span>
+            <a v-else @click="gotoPath(breadcrumb.path)">{{ breadcrumb.meta.title }}</a>
+          </el-breadcrumb-item>
+        </transition-group>
+        
+      </el-breadcrumb>
+    </div>
 </template>
 
 <script>
@@ -31,18 +34,19 @@ export default {
       this.getroutepath()
   },
   methods: {
-    ...mapActions('status',['changestatus']),
+    ...mapActions('status',['changeStatus']),
     
     getroutepath() {
       let matched = this.$route.matched.filter(item => item.name);
       const firstpath = matched[0]
-      if(firstpath && firstpath.path != '/dashboard') {
-        matched = [{ path: '/', meta: { title: '首页' }}].concat(matched)
-      }
-      else {
-        matched = [{ path: '/', meta: { title: '首页' }}]
+      if(firstpath && firstpath.name !== 'Dashboard') {
+        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
       }
       this.breadcrumbs = matched.filter(item => item.meta && item.meta.title)
+    },
+    gotoPath(data) {
+      console.log(data)
+      this.$router.push(data)
     }
   }
 }
@@ -51,13 +55,12 @@ export default {
 <style lang="less" scoped>
 @commonheigth: 50px;
 
-.navbar > * {
+#content > * {
   float: left;
   margin-left: 20px;
-  font-size: 24px;
 }
 
-.navbar {
+#content {
   width: 100%;
   height: @commonheigth;
   line-height: @commonheigth;
@@ -66,11 +69,32 @@ export default {
 .hiddenornot {
   cursor: pointer;
   outline: none;
+  font-size: 19px;
 }
 
-.breadcrumb {
+.el-breadcrumb {
   height: @commonheigth;
   line-height: @commonheigth;
   font-size: 14px;
 }
+
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all 0.5s;
+}
+
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-move {
+  transition: all 0.5s;
+}
+
+.breadcrumb-leave-active {
+  position: absolute;
+}
+
 </style>
