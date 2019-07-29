@@ -36,7 +36,7 @@ export const routes = [
         redirect: '/person-info/my-curriculum-vitae/my-info',
         component: () =>
           import(
-            /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/index.vue'
+            /*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/index.vue'
           ),
         meta: { title: '我的简历', icon: '' },
         children: [
@@ -45,7 +45,7 @@ export const routes = [
             name: 'PersonInfoCurriculumVitaeMyinfo',
             component: () =>
               import(
-                /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'
+                /*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'
               ),
             meta: { title: '备份', icon: '' }
           }
