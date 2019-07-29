@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import IconSvg from '@/components/SvgIcon/index.vue';
+// import Vue from 'vue';
+// import IconSvg from '@/components/SvgIcon/index.vue';
 
-// 全局注册icon-svg
-Vue.component('icon-svg', IconSvg);
+// // 全局注册icon-svg
+// Vue.component('icon-svg', IconSvg);
 
 
 // requires and returns all modules that match
