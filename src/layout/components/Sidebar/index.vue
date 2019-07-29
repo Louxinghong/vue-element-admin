@@ -29,7 +29,7 @@ export default {
   name: 'SideBar',
   data () {
     return {
-        color: ''
+      color: ''
     }
   },
   components: {

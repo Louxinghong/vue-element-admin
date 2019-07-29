@@ -1,4 +1,4 @@
-import { routes } from '@/router/index.js'
+import { routes } from '@/router/index'
 
 export default {
   namespaced: true,
