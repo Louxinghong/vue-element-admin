@@ -62,6 +62,16 @@ export default {
       .el-menu {
         height: 100%;
         width: 100% !important;
+
+        .svg-icon {
+          font-size: 20px;
+          margin-right: 16px;
+          vertical-align: middle;
+        }
+
+        .is-active > .el-submenu__title {
+          color: #f4f4f5 !important;
+        }
       }
     }
   }

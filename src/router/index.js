@@ -18,7 +18,7 @@ export const routes = [
           import(
             /*webpackChunkName: 'group-dashboard' */ '@/views/dashboard/index.vue'
           ),
-        meta: { title: '首页', icon: 'el-icon-menu' }
+        meta: { title: '首页', icon: 'dashboard' }
       }
     ]
   },
@@ -27,7 +27,7 @@ export const routes = [
     name: 'PersonInfo',
     component: Layout,
     redirect: '/person-info/my-curriculum-vitae',
-    meta: { title: '个人信息', icon: 'el-icon-user' },
+    meta: { title: '个人信息', icon: 'person-info' },
     alwaysShow: true,
     children: [
       {
@@ -38,7 +38,7 @@ export const routes = [
           import(
             /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/index.vue'
           ),
-        meta: { title: '我的简历' },
+        meta: { title: '我的简历', icon: '' },
         children: [
           {
             path: 'my-info',
@@ -47,7 +47,7 @@ export const routes = [
               import(
                 /*webpackChunkName: 'group-dashboard' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'
               ),
-            meta: { title: '备份' }
+            meta: { title: '备份', icon: '' }
           }
         ]
       }

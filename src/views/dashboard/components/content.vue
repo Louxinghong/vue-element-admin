@@ -13,9 +13,9 @@
         </el-card>
       </el-timeline-item>
 
-      <el-timeline-item timestamp="2019/7/26" placement="top" :color="unfinished">
+      <el-timeline-item timestamp="2019/7/29" placement="top" :color="finished">
         <el-card>
-          <h4>svg-icon组件（未完成）</h4>
+          <h4>svg-icon组件</h4>
         </el-card>
       </el-timeline-item>
     

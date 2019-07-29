@@ -2,7 +2,7 @@
   <div class="menu-wrapper">
     <el-submenu v-if="hasChildren(item) && item.alwaysShow !== false" :index="basepath">
       <template slot="title">
-        <i :class="item.meta.icon !== null ? item.meta.icon : ''"></i>
+        <svg-icon v-show="item.meta.icon !== ''" :icon-class="item.meta.icon"></svg-icon>
         <span slot="title">{{ item.meta.title }}</span>
       </template>
       <side-bar-item
@@ -16,7 +16,7 @@
     <template v-else-if="hasOneChildren(item) && item.alwaysShow === false">
       <router-link :to="'/' + childrenroute.path">
         <el-menu-item :index="'/' + childrenroute.path">
-          <i :class="childrenroute.meta.icon"></i>
+          <svg-icon :icon-class="childrenroute.meta.icon"></svg-icon>
           <span slot="title">{{ childrenroute.meta.title }}</span>
         </el-menu-item>
       </router-link>
@@ -25,9 +25,8 @@
     <template v-else-if="hasNoChildren(item)">
       <router-link :to="basepath">
         <el-menu-item :index="basepath">
-          <i :class="item.meta.icon !== null ? item.meta.icon : ''"></i>
+          <svg-icon v-show="item.meta.icon !== ''" :icon-class="item.meta.icon"></svg-icon>
           <span slot="title">{{ item.meta.title }}</span>
-           
         </el-menu-item>
       </router-link>
     </template>
@@ -39,7 +38,7 @@ export default {
   name: 'SideBarItem',
   data () {
     return {
-        childrenroute: []
+      childrenroute: []
     }
   },
   props: {
@@ -88,6 +87,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less' scoped>
 
 </style>

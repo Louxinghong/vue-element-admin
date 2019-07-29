@@ -12,7 +12,8 @@ export default {
   props: {
     iconClass: {
       type: String,
-      required: true
+      required: true,
+      default: ''
     },
     className: {
       type: String,
@@ -24,7 +25,6 @@ export default {
     //   return isExternal(this.iconClass)
     // },
     iconName() {
-      console.log(this.iconClass)
       return `#icon-${this.iconClass}`
     },
     svgClass() {
