@@ -11,7 +11,7 @@ export const routes = requireRoutes.keys().reduce((total, path) => {
 
   total = module.default || module
   
-  console.log(total)
+  console.log(module)
   return total
 }, {})
 
