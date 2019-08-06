@@ -1,5 +1,9 @@
 # mgmt_test
 
+## Write something
+```
+基于vue3.0的后台管理系统。包含封装的公共界面，侧栏、面包屑、置顶按钮、获取自定义侧栏图标、路由、设置栏等。还在不断学习中。
+```
 ## Project setup
 ```
 npm install
