@@ -1,20 +1,21 @@
 <template>
-    <div id="content">
-      <span class="hiddenornot" @click="changeStatus"><i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i></span>
-      <el-breadcrumb separator="/">
-        <transition-group name="breadcrumb">
-          <el-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
-            <span v-if="index === breadcrumbs.length-1">{{ breadcrumb.meta.title }}</span>
-            <a v-else @click="gotoPath(breadcrumb.path)">{{ breadcrumb.meta.title }}</a>
-          </el-breadcrumb-item>
-        </transition-group>
-        
-      </el-breadcrumb>
-    </div>
+  <div id="content">
+    <span class="hiddenornot" @click="changeStatus">
+      <i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i>
+    </span>
+    <el-breadcrumb separator="/">
+      <transition-group name="breadcrumb">
+        <el-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.path">
+          <span v-if="index === breadcrumbs.length-1">{{ breadcrumb.meta.title }}</span>
+          <a v-else @click="gotoPath(breadcrumb.path)">{{ breadcrumb.meta.title }}</a>
+        </el-breadcrumb-item>
+      </transition-group>
+    </el-breadcrumb>
+  </div>
 </template>
 
 <script>
-import {mapState, mapMutations, mapActions} from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'NavBar',
   data () {
@@ -23,7 +24,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('status',['isCollapse'])
+    ...mapState('status', ['isCollapse'])
   },
   watch: {
     $route (route) {
@@ -31,20 +32,20 @@ export default {
     }
   },
   created () {
-      this.getroutepath()
+    this.getroutepath()
   },
   methods: {
-    ...mapActions('status',['changeStatus']),
-    
-    getroutepath() {
+    ...mapActions('status', ['changeStatus']),
+
+    getroutepath () {
       let matched = this.$route.matched.filter(item => item.name);
       const firstpath = matched[0]
-      if(firstpath && firstpath.name !== 'Dashboard') {
-        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
+      if (firstpath && firstpath.name !== 'Dashboard') {
+        matched = [{ path: '/dashboard', meta: { title: '首页' } }].concat(matched)
       }
       this.breadcrumbs = matched.filter(item => item.meta && item.meta.title)
     },
-    gotoPath(data) {
+    gotoPath (data) {
       console.log(data)
       this.$router.push(data)
     }
@@ -96,5 +97,4 @@ export default {
 .breadcrumb-leave-active {
   position: absolute;
 }
-
 </style>

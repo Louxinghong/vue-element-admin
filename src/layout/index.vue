@@ -25,8 +25,8 @@ export default {
 
     }
   },
-  computed:{
-    ...mapState('status',['isCollapse'])
+  computed: {
+    ...mapState('status', ['isCollapse'])
   },
   components: {
     SideBar,

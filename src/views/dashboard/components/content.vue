@@ -27,7 +27,7 @@
 // import { isEqual } from 'lodash'
 export default {
   name: 'Content',
-  data() {
+  data () {
     return {
       finished: 'green',
       unfinished: '#99a9bf'

@@ -6,7 +6,7 @@
   "globals": {
     "saveAs": true
   },
-  "extends": ["plugin:vue/essential"],
+  "extends": ["plugin:vue/essential", "@vue/standard"],
   "parserOptions": {
     "parser": "babel-eslint"
   },

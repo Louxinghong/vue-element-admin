@@ -8,15 +8,15 @@
       :default-active="activedPath"
       :collapse="isCollapse"
       :collapse-transition="false"
-      :unique-opened="true">
-      
+      :unique-opened="true"
+    >
       <SidebarLogo></SidebarLogo>
       <SideBarContent
         v-for="route in routes"
         :key="route.path"
         :item="route"
-        :basepath="route.path"> 
-      </SideBarContent>
+        :basepath="route.path"
+      ></SideBarContent>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -37,8 +37,8 @@ export default {
     SidebarLogo
   },
   computed: {
-    ...mapState('status',['isCollapse', 'routes']),
-    activedPath() {
+    ...mapState('status', ['isCollapse', 'routes']),
+    activedPath () {
       const { path } = this.$route
       return path
     }
@@ -47,5 +47,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 </style>
