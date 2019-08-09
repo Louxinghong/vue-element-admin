@@ -11,9 +11,7 @@ export const routes = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () =>
-          import(
-            /*webpackChunkName: 'group-dashboard' */ '@/views/dashboard/index.vue'
-          ),
+          import(/*webpackChunkName: 'group-dashboard' */ '@/views/dashboard/index.vue'),
         meta: { title: '首页', icon: 'dashboard' }
       }
     ]

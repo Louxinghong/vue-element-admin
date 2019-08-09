@@ -19,46 +19,29 @@
         </el-card>
       </el-timeline-item>
     </el-timeline>
-    <el-button type="primary" @click="onCompare">比较</el-button>
-    <editor-elem v-model="editorData"></editor-elem>
-    <el-button type="primary" @click="onClick">点我</el-button>
+    <!-- <el-button type="primary" @click="onCompare">比较</el-button> -->
   </div>
 </template>
 
 <script>
-import { isEqual } from 'lodash'
+// import { isEqual } from 'lodash'
 export default {
   name: 'Content',
   data() {
     return {
       finished: 'green',
-      unfinished: '#99a9bf',
-      data: [],
-      editorData: ''
-    }
-  },
-  watch: {
-    editorData: {
-      handler: function (val) {
-        console.log(val)
-      },
-      immediate: true
+      unfinished: '#99a9bf'
     }
   },
   methods: {
-    onClick () {
-      console.log(this.editorData)
-    }
-  },
-  methods: {
-    onCompare () {
-      if (isEqual(this.finished, this.unfinished)) {
-        console.log('same')
-      }
-      else {
-        console.log('different')
-      }
-    }
+    // onCompare () {
+    //   if (isEqual(this.finished, this.unfinished)) {
+    //     console.log('same')
+    //   }
+    //   else {
+    //     console.log('different')
+    //   }
+    // }
   }
 }
 </script>

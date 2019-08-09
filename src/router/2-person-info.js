@@ -14,18 +14,14 @@ export const routes = [
         name: 'PersonInfoCurriculumVitae',
         redirect: '/person-info/my-curriculum-vitae/my-info',
         component: () =>
-          import(
-            /*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/index.vue'
-          ),
+          import(/*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/index.vue'),
         meta: { title: '重要信息', icon: '' },
         children: [
           {
             path: 'my-info',
             name: 'PersonInfoCurriculumVitaeMyinfo',
             component: () =>
-              import(
-                /*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'
-              ),
+              import(/*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/my-info/index.vue'),
             meta: { title: '备份', icon: '' }
           }
         ]
