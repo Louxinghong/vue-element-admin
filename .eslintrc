@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "saveAs": true
+  },
+  "extends": ["plugin:vue/essential"],
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "rules": {
+    "no-return-await": "off"
+  }
+}

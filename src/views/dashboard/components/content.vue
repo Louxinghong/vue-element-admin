@@ -18,12 +18,14 @@
           <h4>svg-icon组件</h4>
         </el-card>
       </el-timeline-item>
-    
-  </el-timeline>
+
+      <el-button type="primary" @click="onCompare">比较</el-button>
+    </el-timeline>
   </div>
 </template>
 
 <script>
+import { isEqual } from 'lodash'
 export default {
   name: 'Content',
   data() {
@@ -32,10 +34,19 @@ export default {
       unfinished: '#99a9bf',
       data: []
     }
+  },
+  methods: {
+    onCompare () {
+      if (isEqual(this.finished, this.unfinished)) {
+        console.log('same')
+      }
+      else {
+        console.log('different')
+      }
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
-
 </style>

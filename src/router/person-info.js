@@ -17,7 +17,7 @@ export const routes = [
           import(
             /*webpackChunkName: 'group-person-info' */ '@/views/person-info/my-curriculum-vitae/index.vue'
           ),
-        meta: { title: '我的简历', icon: '' },
+        meta: { title: '重要信息', icon: '' },
         children: [
           {
             path: 'my-info',
