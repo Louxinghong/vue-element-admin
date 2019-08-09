@@ -18,9 +18,10 @@
           <h4>svg-icon组件</h4>
         </el-card>
       </el-timeline-item>
-
-      <el-button type="primary" @click="onCompare">比较</el-button>
     </el-timeline>
+    <el-button type="primary" @click="onCompare">比较</el-button>
+    <editor-elem v-model="editorData"></editor-elem>
+    <el-button type="primary" @click="onClick">点我</el-button>
   </div>
 </template>
 
@@ -32,7 +33,21 @@ export default {
     return {
       finished: 'green',
       unfinished: '#99a9bf',
-      data: []
+      data: [],
+      editorData: ''
+    }
+  },
+  watch: {
+    editorData: {
+      handler: function (val) {
+        console.log(val)
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    onClick () {
+      console.log(this.editorData)
     }
   },
   methods: {
