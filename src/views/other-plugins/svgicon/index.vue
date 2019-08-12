@@ -9,7 +9,13 @@
 
 <script>
 export default {
-  name: 'SvgIconExample'
+  name: 'SvgIconExample',
+  data () {
+    return {}
+  },
+  methods: {
+    onClick () {}
+  }
 }
 </script>
 
