@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'NavBar',
   data () {
@@ -38,10 +38,12 @@ export default {
     ...mapActions('status', ['changeStatus']),
 
     getroutepath () {
-      let matched = this.$route.matched.filter(item => item.name);
+      let matched = this.$route.matched.filter(item => item.name)
       const firstpath = matched[0]
       if (firstpath && firstpath.name !== 'Dashboard') {
-        matched = [{ path: '/dashboard', meta: { title: '首页' } }].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: '首页' } }].concat(
+          matched
+        )
       }
       this.breadcrumbs = matched.filter(item => item.meta && item.meta.title)
     },

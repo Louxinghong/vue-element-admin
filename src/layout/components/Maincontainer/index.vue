@@ -8,13 +8,10 @@
 export default {
   name: 'MainContainer',
   data () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>
 
 <style lang="less" scoped>
-
 </style>

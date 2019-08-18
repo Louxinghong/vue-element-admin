@@ -21,9 +21,7 @@ import SettingPanel from '@/layout/components/Settingpanel/index.vue'
 export default {
   name: 'Layout',
   data () {
-    return {
-
-    }
+    return {}
   },
   computed: {
     ...mapState('status', ['isCollapse'])

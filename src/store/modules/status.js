@@ -7,18 +7,18 @@ export default {
     routes: routes
   },
   getters: {
-    isCollapse(state){
-      return state.isCollapse;
+    isCollapse (state) {
+      return state.isCollapse
     }
   },
   mutations: {
-    CHANGESTATUS(state) {
-      state.isCollapse = !state.isCollapse;
+    CHANGESTATUS (state) {
+      state.isCollapse = !state.isCollapse
     }
   },
   actions: {
-    changeStatus({commit}) {
-      commit('CHANGESTATUS');
+    changeStatus ({ commit }) {
+      commit('CHANGESTATUS')
     }
   }
 }

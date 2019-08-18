@@ -17,8 +17,9 @@ export default {
   watch: {
     tinymceContent: {
       handler: function (val) {
-        console.log(val)
-      }
+        console.log( val )
+      },
+      immediate: true
     }
   }
 }
