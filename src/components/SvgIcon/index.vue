@@ -30,8 +30,7 @@ export default {
     svgClass () {
       if (this.className) {
         return 'svg-icon' + this.className
-      }
-      else {
+      } else {
         return 'svg-icon'
       }
     }

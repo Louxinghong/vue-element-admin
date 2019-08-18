@@ -9,11 +9,24 @@
         v-for="child in item.children"
         :key="child.path"
         :item="child"
-        :basepath="totalPath(basepath, child.path)">
-      </side-bar-item>
+        :basepath="totalPath(basepath, child.path)"
+      ></side-bar-item>
     </el-submenu>
 
-    <template v-else-if="hasOneChildren(item) && item.alwaysShow === false">
+    <template
+      v-else-if="hasOneChildren(item) && item.alwaysShow === false && childrenroute.name != 'Dashboard'"
+    >
+      <router-link :to="item.path">
+        <el-menu-item :index="item.redirect">
+          <svg-icon :icon-class="childrenroute.meta.icon"></svg-icon>
+          <span slot="title">{{ childrenroute.meta.title }}</span>
+        </el-menu-item>
+      </router-link>
+    </template>
+
+    <template
+      v-else-if="hasOneChildren(item) && item.alwaysShow === false && childrenroute.name === 'Dashboard'"
+    >
       <router-link :to="'/' + childrenroute.path">
         <el-menu-item :index="'/' + childrenroute.path">
           <svg-icon :icon-class="childrenroute.meta.icon"></svg-icon>
@@ -21,7 +34,7 @@
         </el-menu-item>
       </router-link>
     </template>
-    
+
     <template v-else-if="hasNoChildren(item)">
       <router-link :to="basepath">
         <el-menu-item :index="basepath">
@@ -52,35 +65,32 @@ export default {
     }
   },
   methods: {
-    hasChildren(data) {
-      if(data.children) {
+    hasChildren (data) {
+      if (data.children) {
         return true
-      }
-      else {
+      } else {
         return false
       }
     },
-    hasOneChildren(data) {
-      if(data.children) {
+    hasOneChildren (data) {
+      if (data.children) {
         data = data.children
-        if(data.children) {
+        if (data.children) {
           return false
-        }
-        else {
+        } else {
           this.childrenroute = data[0]
           return true
         }
       }
     },
-    hasNoChildren(data) {
-      if(data.chidlren) {
+    hasNoChildren (data) {
+      if (data.chidlren) {
         return false
-      }
-      else {
+      } else {
         return true
       }
     },
-    totalPath(data, item) {
+    totalPath (data, item) {
       return data + '/' + item
     }
   }
@@ -88,5 +98,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
 </style>

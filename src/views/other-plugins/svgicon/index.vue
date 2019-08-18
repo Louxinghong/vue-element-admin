@@ -4,6 +4,7 @@
     <svg-icon icon-class="dashboard"></svg-icon>
     <svg-icon icon-class="other-plugins"></svg-icon>
     <svg-icon icon-class="person-info"></svg-icon>
+    <svg-icon icon-class="table"></svg-icon>
   </div>
 </template>
 
@@ -14,7 +15,7 @@ export default {
     return {}
   },
   methods: {
-    onClick () {}
+    onClick () { }
   }
 }
 </script>

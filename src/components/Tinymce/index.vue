@@ -9,14 +9,16 @@ import plugins from './plugins'
 import toolbar from './toolbar'
 import load from './dynamicLoadScript'
 
-const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
+const tinymceCDN =
+  'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
 
 export default {
   name: 'Tinymce',
   props: {
     id: {
       type: String,
-      default: 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
+      default:
+        'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
     },
     value: {
       type: String,
@@ -49,15 +51,16 @@ export default {
       tinymceId: this.id,
       fullscreen: false,
       languageTypeList: {
-        'en': 'en',
-        'zh': 'zh_CN'
+        en: 'en',
+        zh: 'zh_CN'
       }
     }
   },
   computed: {
     containerWidth () {
       const width = this.width
-      if (/^[\d]+(\.[\d]+)?$/.test(width)) { // matches `100`, `'100'`
+      if (/^[\d]+(\.[\d]+)?$/.test(width)) {
+        // matches `100`, `'100'`
         return `${width}px`
       }
       return width
@@ -67,7 +70,8 @@ export default {
     value (val) {
       if (!this.hasChange && this.hasInit) {
         this.$nextTick(() =>
-          window.tinymce.get(this.tinymceId).setContent(val || ''))
+          window.tinymce.get(this.tinymceId).setContent(val || '')
+        )
       }
     }
   },
@@ -87,7 +91,7 @@ export default {
   },
   methods: {
     init () {
-      load(tinymceCDN, (err) => {
+      load(tinymceCDN, err => {
         if (err) {
           this.$message.error(err.message)
           return
@@ -127,7 +131,7 @@ export default {
           })
         },
         setup: editor => {
-          editor.on('FullscreenStateChanged', (e) => {
+          editor.on('FullscreenStateChanged', e => {
             _this.fullscreen = e.state
           })
         }

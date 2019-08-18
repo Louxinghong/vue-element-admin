@@ -2,16 +2,15 @@
   <div class="settinng-panel-container" :class="{'show': show}">
     <div class="setting-panel">
       <div class="handle-button" @click="show = !show">
-        <i :class="show ? 'el-icon-close' : 'el-icon-setting'"/>
+        <i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
       </div>
       <div class="setting-panel-items">
         <h3 class="panel-title">系统配置</h3>
 
         <div class="panel-item">
           <span>隐藏侧栏文字</span>
-          <el-switch class="panel-switch" v-model="isCollapse"/>
+          <el-switch class="panel-switch" v-model="isCollapse" />
         </div>
-
       </div>
     </div>
   </div>
@@ -21,17 +20,17 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'SettingPanel',
-  data() {
+  data () {
     return {
       show: false,
-      isCollapse: false,
+      isCollapse: false
     }
   },
   methods: {
-    ...mapActions('status',['changeStatus']),
+    ...mapActions('status', ['changeStatus'])
   },
   watch: {
-    isCollapse() {
+    isCollapse () {
       this.changeStatus()
     }
   }
@@ -39,7 +38,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.settinng-panel-container{
+.settinng-panel-container {
   .setting-panel {
     position: fixed;
     height: 100vh;
