@@ -7,35 +7,36 @@
 <script>
 export default {
   name: 'BackToTop',
-  data(){
+  data () {
     return {
       visible: false,
       visibleOffset: 120
     }
   },
-  mounted(){
+  mounted () {
     window.smoothscroll = () => {
-      let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      console.log(currentScroll);
+      let currentScroll =
+        document.documentElement.scrollTop || document.body.scrollTop
+      console.log(currentScroll)
       if (currentScroll > 0) {
-        window.requestAnimationFrame(window.smoothscroll);
-        window.scrollTo(0, Math.floor(currentScroll - (currentScroll / 5)));
+        window.requestAnimationFrame(window.smoothscroll)
+        window.scrollTo(0, Math.floor(currentScroll - currentScroll / 5))
       }
     }
 
     this.$nextTick(() => {
-      window.addEventListener('scroll', this.onScroll);
+      window.addEventListener('scroll', this.onScroll)
     })
   },
-  destroyed() {
-      window.removeEventListener('scroll', this.onScroll);
+  destroyed () {
+    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     onScroll () {
-      this.visible = window.pageYOffset > parseInt(this.visibleOffset);
+      this.visible = window.pageYOffset > parseInt(this.visibleOffset)
     },
     onBackToTop () {
-      window.smoothscroll();
+      window.smoothscroll()
     }
   }
 }

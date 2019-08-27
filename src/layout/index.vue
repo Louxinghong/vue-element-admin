@@ -21,12 +21,10 @@ import SettingPanel from '@/layout/components/Settingpanel/index.vue'
 export default {
   name: 'Layout',
   data () {
-    return {
-
-    }
+    return {}
   },
-  computed:{
-    ...mapState('status',['isCollapse'])
+  computed: {
+    ...mapState('status', ['isCollapse'])
   },
   components: {
     SideBar,
@@ -58,7 +56,7 @@ export default {
     .scrollbar-wrapper {
       overflow-x: hidden !important;
       background-color: #001529;
-      
+
       .el-menu {
         height: 100%;
         width: 100% !important;
@@ -82,7 +80,7 @@ export default {
     transition: margin-left 0.28s;
 
     .main-content {
-      padding: 0px 20px;
+      padding: 20px;
     }
   }
 
@@ -121,6 +119,4 @@ export default {
     }
   }
 }
-
-
 </style>

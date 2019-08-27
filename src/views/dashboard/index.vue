@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Content from '@/views/dashboard/components/content'
+import Content from '@/views/dashboard/components/content.vue'
 export default {
   name: 'Dashboard',
   components: {
@@ -16,6 +16,6 @@ export default {
 
 <style lang="less" scoped>
 #content {
-  padding-top: 20px;
+  padding-top: 5px;
 }
 </style>

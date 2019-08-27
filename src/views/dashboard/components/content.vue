@@ -1,41 +1,25 @@
 <template>
   <div id="content">
-    <el-timeline>
-      <el-timeline-item timestamp="2019/4/12" placement="top" :color="finished">
-        <el-card>
-          <h4>整体框架搭建（侧栏、顶栏、面包屑、设置等）</h4>
-        </el-card>
-      </el-timeline-item>
-
-      <el-timeline-item timestamp="2019/5/12" placement="top" :color="finished">
-        <el-card>
-          <h4>个人信息界面</h4>
-        </el-card>
-      </el-timeline-item>
-
-      <el-timeline-item timestamp="2019/7/29" placement="top" :color="finished">
-        <el-card>
-          <h4>svg-icon组件</h4>
-        </el-card>
-      </el-timeline-item>
-    
-  </el-timeline>
+    <el-divider content-position="left">
+      <i class="el-icon-eleme"></i>
+    </el-divider>
+    <h3>此系统只列举elementUi-vue各个组件中的部分功能</h3>
   </div>
 </template>
 
 <script>
+// import { isEqual } from 'lodash'
 export default {
   name: 'Content',
-  data() {
+  data () {
     return {
       finished: 'green',
-      unfinished: '#99a9bf',
-      data: []
+      unfinished: '#99a9bf'
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
 <style lang="less" scoped>
-
 </style>

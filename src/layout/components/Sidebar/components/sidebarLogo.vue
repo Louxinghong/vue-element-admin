@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'SidebarLogo',
-  data() {
+  data () {
     return {
       title: '管理系统'
     }
@@ -27,5 +27,4 @@ export default {
     font-weight: bold;
   }
 }
-
 </style>
