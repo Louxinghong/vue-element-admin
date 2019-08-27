@@ -26,7 +26,9 @@
       <el-table-column prop="singlePrice" label="单价"></el-table-column>
       <el-table-column label="总价">
         <template v-slot="{ row }">
-          <p>{{ row.num * row.singlePrice }}</p>
+          <p
+            :style="{ color: row.num * row.singlePrice > 1000 ? 'red' : 'blue'}"
+          >{{ row.num * row.singlePrice }}</p>
         </template>
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
