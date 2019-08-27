@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     onClose (reload) {
-      !reload && this.$refs.form.resetFields()
+      this.$refs.form.resetFields()
       this.$emit('close', typeof reload === 'function' ? false : reload, this.form)
     },
     onCancel () {

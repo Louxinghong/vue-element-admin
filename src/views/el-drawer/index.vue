@@ -27,10 +27,10 @@
           <el-form-item label="名称">
             <el-input v-model="formData.position" autocomplete="off"></el-input>
           </el-form-item>
-          <el-table-item>
+          <el-form-item>
             <el-button>取 消</el-button>
             <el-button type="primary" :loading="loading">确 定</el-button>
-          </el-table-item>
+          </el-form-item>
         </el-form>
       </div>
     </el-drawer>
@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import { setTimeout } from 'timers';
+import { setTimeout } from 'timers'
 export default {
-  name: 'Drawer',
+  name: 'ElDrawer',
   data () {
     return {
       tableDrawer: false,

@@ -13,7 +13,7 @@ export const routes = [
         name: 'Drawer',
         component: () =>
           import(/*webpackChunkName: 'group-drawer' */ '@/views/el-drawer/index.vue'),
-        meta: { title: 'el-drawer 抽屉', icon: 'table' }
+        meta: { title: 'el-drawer 抽屉', icon: 'drawer' }
       }
     ]
   }

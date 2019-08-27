@@ -14,14 +14,14 @@
       <el-table-column prop="name" label="姓名" width="120"></el-table-column>
       <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
-        <el-button type="text">查看</el-button>
-        <el-button type="text">编辑</el-button>
+        <template slot-scope="scope">
+          <el-button @click="handleClick(scope.row)" type="text">编辑</el-button>
+          <el-button type="text">删除</el-button>
+        </template>
       </el-table-column>
     </el-table>
-    <div style="margin-top: 20px">
-      <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
-      <el-button @click="toggleSelection()">取消选择</el-button>
-    </div>
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
+    <el-button @click="toggleSelection()">取消选择</el-button>
   </div>
 </template>
 
@@ -63,14 +63,8 @@ export default {
   },
 
   methods: {
-    toggleSelection (rows) {
-      if (rows) {
-        rows.forEach(row => {
-          this.$refs.multipleTable.toggleRowSelection(row)
-        })
-      } else {
-        this.$refs.multipleTable.clearSelection()
-      }
+    handleClick (row) {
+      console.log(row)
     },
     handleSelectionChange (val) {
       this.multipleSelection = val

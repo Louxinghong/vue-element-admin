@@ -1,21 +1,17 @@
 <template>
   <div id="content">
-    <svg-icon icon-class="logo"></svg-icon>
-    <svg-icon icon-class="dashboard"></svg-icon>
-    <svg-icon icon-class="other-plugins"></svg-icon>
-    <svg-icon icon-class="person-info"></svg-icon>
-    <svg-icon icon-class="table"></svg-icon>
+    <svg-icon v-for="(item, index) in icons" :key="index" :icon-class="item"></svg-icon>
   </div>
 </template>
 
 <script>
+import icons from '@/icons/index.js'
 export default {
   name: 'SvgIconExample',
   data () {
-    return {}
-  },
-  methods: {
-    onClick () { }
+    return {
+      icons: icons
+    }
   }
 }
 </script>
