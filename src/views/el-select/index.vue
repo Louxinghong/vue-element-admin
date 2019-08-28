@@ -13,7 +13,7 @@
 
     <el-divider></el-divider>
 
-    <h3>远程搜索</h3>
+    <h3>远程搜索选择器</h3>
     <p>从服务器搜索，输入关键字进行查找</p>
     <el-select
       v-model="value"
