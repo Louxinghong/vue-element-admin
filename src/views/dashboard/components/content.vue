@@ -3,7 +3,7 @@
     <el-divider content-position="left">
       <i class="el-icon-eleme"></i>
     </el-divider>
-    <h3>此系统只列举elementUi-vue各个组件中的部分功能</h3>
+    <h3>此系统只列举elementUi-vue各个组件中的部分功能、JStest、CSStest等</h3>
   </div>
 </template>
 
