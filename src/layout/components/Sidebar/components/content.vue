@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-wrapper">
+  <div v-if="!item.hidden" class="menu-wrapper">
     <el-submenu v-if="hasChildren(item) && item.alwaysShow !== false" :index="basepath">
       <template slot="title">
         <svg-icon v-show="item.meta.icon !== ''" :icon-class="item.meta.icon"></svg-icon>

@@ -14,6 +14,14 @@ Object.keys(components).forEach(key => {
   Vue.component(key, components[key])
 })
 
+router.beforeEach((to, from, next) => {
+  if (!to.matched || to.matched.length === 0) {
+    next('/404')
+  } else {
+    next()
+  }
+})
+
 Vue.config.productionTip = false
 
 new Vue({

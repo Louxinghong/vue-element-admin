@@ -11,6 +11,9 @@
         </el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>
+    <div class="right-set">
+      <svg-icon icon-class="setting" @click.native="onChangeSetting"></svg-icon>
+    </div>
   </div>
 </template>
 
@@ -49,6 +52,9 @@ export default {
     },
     gotoPath (data) {
       this.$router.push(data)
+    },
+    onChangeSetting () {
+      this.$store.dispatch('status/changeDrawer')
     }
   }
 }
@@ -97,5 +103,18 @@ export default {
 
 .breadcrumb-leave-active {
   position: absolute;
+}
+
+.right-set {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
+
+  .svg-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
 }
 </style>
