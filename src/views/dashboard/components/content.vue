@@ -17,7 +17,13 @@ export default {
       unfinished: '#99a9bf'
     }
   },
-  methods: {}
+  created () {
+    const length = document.body.getBoundingClientRect()
+    console.log(length)
+  },
+  methods: {
+
+  }
 }
 </script>
 
