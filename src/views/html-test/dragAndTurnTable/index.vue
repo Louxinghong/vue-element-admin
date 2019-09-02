@@ -119,11 +119,6 @@ export default {
       this.speed = 200
       this.diff = 15
     },
-    onRotate () {
-      // this.isRotate = !this.isRotate 若为false就恢复初始样式
-      this.rotateNums = this.rotateNums + (Math.random() + 60) * 70
-      console.log(this.rotateNums)
-    },
     drawAward () {
       setTimeout(() => {
         this.award = this.awards[3]
@@ -151,6 +146,10 @@ export default {
         }
         this.move()
       }, this.speed)
+    },
+    onRotate () {
+      // this.isRotate = !this.isRotate 若为false就恢复初始样式
+      this.rotateNums = this.rotateNums + (Math.random() + 60) * 70
     }
   }
 }

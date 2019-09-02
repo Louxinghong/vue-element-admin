@@ -18,8 +18,8 @@ export default {
     }
   },
   created () {
-    const length = document.body.getBoundingClientRect()
-    console.log(length)
+    // const length = document.body.getBoundingClientRect()
+    // console.log(length)
   },
   methods: {
 

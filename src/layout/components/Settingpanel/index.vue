@@ -1,8 +1,8 @@
 <template>
-  <el-drawer title="系统配置" :visible.sync="showDrawer" direction="rtl">
+  <el-drawer title="系统配置" :visible.sync="showDrawer" direction="rtl" :size="size">
     <div class="setting-panel">
       <div class="panel-item">
-        <span>隐藏侧栏文字</span>
+        <span>隐藏侧栏</span>
         <el-switch class="panel-switch" v-model="isCollapse" />
       </div>
     </div>
@@ -17,6 +17,9 @@ export default {
     return {}
   },
   computed: {
+    size () {
+      return this.$store.getters.isMobile ? '50%' : '400px'
+    },
     showDrawer: {
       get () {
         return this.$store.state.status.showDrawer
@@ -30,12 +33,12 @@ export default {
         return this.$store.state.status.isCollapse
       },
       set (val) {
-        this.$store.dispatch('status/changeStatus')
+        this.$store.dispatch('status/changeCollapse')
       }
     }
   }
   // methods: {
-  //   ...mapActions('status', ['changeStatus']),
+  //   ...mapActions('status', ['changeCollapse']),
   // }
 }
 </script>
