@@ -6,14 +6,15 @@ export const routes = [
     name: 'HtmlTest',
     component: Layout,
     redirect: '/html-test/html',
-    alwaysShow: false,
+    meta: { title: 'html-test', icon: 'html' },
+    alwaysShow: true,
     children: [
       {
         path: 'html',
         name: 'Html',
         component: () =>
-          import(/*webpackChunkName: 'group-html-test' */ '@/views/html-test/index.vue'),
-        meta: { title: 'html-test', icon: 'html' }
+          import(/*webpackChunkName: 'group-html-test' */ '@/views/html-test/dragAndTurnTable/index.vue'),
+        meta: { title: '图片拖拽和转盘抽奖', icon: '' }
       }
     ]
   }

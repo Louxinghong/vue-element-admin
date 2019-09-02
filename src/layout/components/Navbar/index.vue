@@ -1,6 +1,6 @@
 <template>
   <div id="content">
-    <span class="hiddenornot" @click="changeStatus">
+    <span class="hiddenornot" @click="changeCollapse">
       <i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i>
     </span>
     <el-breadcrumb separator="/">
@@ -38,7 +38,7 @@ export default {
     this.getroutepath()
   },
   methods: {
-    ...mapActions('status', ['changeStatus']),
+    ...mapActions('status', ['changeCollapse']),
 
     getroutepath () {
       let matched = this.$route.matched.filter(item => item.name)

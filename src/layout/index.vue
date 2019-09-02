@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper" :class="{'isCollapse': isCollapse}">
+  <div class="wrapper" :class="classAll">
+    <div class="hideCollapse" v-show="isMobile && !isCollapse" @click="handleCollapse"></div>
     <SideBar class="side-container"></SideBar>
     <div class="main-container">
       <NavBar class="navbar-container"></NavBar>
@@ -12,6 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import adaptation from './mixins/adaptation.js'
 import SideBar from '@/layout/components/Sidebar/index.vue'
 import NavBar from '@/layout/components/Navbar/index.vue'
 import MainContent from '@/layout/components/Maincontainer/index.vue'
@@ -23,8 +25,23 @@ export default {
   data () {
     return {}
   },
+  mixins: [adaptation],
   computed: {
-    ...mapState('status', ['isCollapse'])
+    isCollapse () {
+      return this.$store.state.status.isCollapse
+    },
+    isCloseSidebar () {
+      return this.$store.state.status.isCloseSidebar
+    },
+    isMobile () {
+      return this.$store.getters.isMobile
+    },
+    classAll () {
+      return {
+        mobile: this.isMobile,
+        isCollapse: this.isCollapse
+      }
+    }
   },
   components: {
     SideBar,
@@ -32,6 +49,11 @@ export default {
     MainContent,
     BackToTop,
     SettingPanel
+  },
+  methods: {
+    handleCollapse () {
+      this.$store.dispatch('status/changeCollapse')
+    }
   }
 }
 </script>
@@ -41,6 +63,16 @@ export default {
 @notCollapse: 250px;
 
 .wrapper {
+  .hideCollapse {
+    position: absolute;
+    background: #000000;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 999;
+  }
+
   .side-container {
     position: fixed;
     width: @notCollapse;
@@ -115,6 +147,18 @@ export default {
             }
           }
         }
+      }
+    }
+  }
+
+  &.mobile {
+    .main-container {
+      margin-left: 0px;
+    }
+
+    &.isCollapse {
+      .side-container {
+        transform: translate3d(-@isCollapse, 0, 0);
       }
     }
   }
