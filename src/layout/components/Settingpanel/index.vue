@@ -17,6 +17,7 @@ export default {
     return {}
   },
   computed: {
+    // 通过判断屏幕尺寸来改变设置栏的宽度
     size () {
       return this.$store.getters.isMobile ? '50%' : '400px'
     },

@@ -65,6 +65,7 @@ export default {
     }
   },
   methods: {
+    // 判断是否有子路由
     hasChildren (data) {
       if (data.children) {
         return true
@@ -72,6 +73,8 @@ export default {
         return false
       }
     },
+
+    // 判断是否只有一个子路由
     hasOneChildren (data) {
       if (data.children) {
         data = data.children
@@ -83,6 +86,8 @@ export default {
         }
       }
     },
+
+    // 判断是否不存在子路由
     hasNoChildren (data) {
       if (data.chidlren) {
         return false
@@ -90,6 +95,8 @@ export default {
         return true
       }
     },
+
+    // 总路径
     totalPath (data, item) {
       return data + '/' + item
     }

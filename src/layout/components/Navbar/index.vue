@@ -40,6 +40,7 @@ export default {
   methods: {
     ...mapActions('status', ['changeCollapse']),
 
+    // 生成面包屑
     getroutepath () {
       let matched = this.$route.matched.filter(item => item.name)
       const firstpath = matched[0]

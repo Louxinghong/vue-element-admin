@@ -14,6 +14,7 @@ export default {
     }
   },
   mounted () {
+    // 屏幕滚动
     window.smoothscroll = () => {
       let currentScroll =
         document.documentElement.scrollTop || document.body.scrollTop
