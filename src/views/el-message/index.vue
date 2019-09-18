@@ -8,15 +8,23 @@
 </template>
 
 <script>
+import { getNews } from '@/api/index'
 export default {
   name: 'ElMessgae',
   data () {
-    return {
-
-    }
+    return {}
   },
   methods: {
-    openMessage1 () {
+    async openMessage1 () {
+      const data = {
+        time: '',
+        pageSize: ''
+      }
+
+      data.time = new Date().getTime() + ''
+      data.pageSize = 50
+
+      await getNews(data)
       this.$message({ message: '这是一个成功的信息提醒' })
     },
     openMessage2 () {
