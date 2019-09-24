@@ -10,7 +10,7 @@
       :collapse-transition="false"
       :unique-opened="true"
     >
-      <SidebarLogo></SidebarLogo>
+      <ProjectLogo></ProjectLogo>
       <SideBarContent
         v-for="route in routes"
         :key="route.path"
@@ -24,7 +24,7 @@
 <script>
 import { mapState } from 'vuex'
 import SideBarContent from './components/content'
-import SidebarLogo from './components/sidebarLogo'
+import ProjectLogo from './components/projectLogo'
 export default {
   name: 'SideBar',
   data () {
@@ -34,7 +34,7 @@ export default {
   },
   components: {
     SideBarContent,
-    SidebarLogo
+    ProjectLogo
   },
   computed: {
     ...mapState('status', ['isCollapse', 'routes']),
