@@ -4,6 +4,7 @@
       ref="multipleTable"
       :data="tableData"
       tooltip-effect="dark"
+      border
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="55"></el-table-column>
@@ -18,6 +19,13 @@
       <el-table-column label="图片">
         <template v-slot="{ row }">
           <img :src="row.picUrl" />
+        </template>
+      </el-table-column>
+      <el-table-column label="类型">
+        <template v-slot="{ row }">
+          <span class="status-tag" :class="{'s7 active': row.s7Status, 's7': !row.s7Status}">实</span>
+          <span class="status-tag" :class="{'s8 active': row.s8Status, 's8': !row.s8Status}">S8</span>
+          <span class="status-tag" :class="{'s9 active': row.s9Status, 's9': !row.s9Status}">S9</span>
         </template>
       </el-table-column>
       <el-table-column label="名称">
@@ -86,6 +94,9 @@ export default {
           date: '2016-05-03',
           picUrl: require('../../images/1.png'),
           name: 'elementUi',
+          s7Status: false,
+          s8Status: true,
+          s9Status: false,
           place: 'China',
           num: 3,
           singlePrice: 1000
@@ -94,6 +105,9 @@ export default {
           date: '2018-1-1',
           picUrl: require('../../images/1.png'),
           name: '啥是佩奇',
+          s7Status: true,
+          s8Status: true,
+          s9Status: false,
           place: 'China',
           num: 1,
           singlePrice: 900
@@ -141,4 +155,35 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.content {
+  .status-tag {
+    display: inline-block;
+    margin-left: 3px;
+    width: 22px;
+    height: 22px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+
+    &.s7.active {
+      color: #ffffff;
+      border: none;
+      background-color: #379efe;
+    }
+
+    &.s8.active {
+      color: #ffffff;
+      border: none;
+      background-color: #fc8e12;
+    }
+
+    &.s9.active {
+      color: #ffffff;
+      border: none;
+      background-color: #4dce1f;
+    }
+  }
+}
 </style>
