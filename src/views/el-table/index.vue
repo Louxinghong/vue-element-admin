@@ -87,6 +87,7 @@
 import { cloneDeep } from 'lodash'
 
 export default {
+  name: 'ElementTable',
   data () {
     return {
       tableData: [

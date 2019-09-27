@@ -39,7 +39,7 @@
 <script>
 import { setTimeout } from 'timers'
 export default {
-  name: 'ELSelect',
+  name: 'ElementSelect',
   data () {
     return {
       commonOptions: [

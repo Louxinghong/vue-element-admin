@@ -5,7 +5,7 @@ import { Message } from 'element-ui'
 fly.config.addAllowedOrigin = '*'
 fly.config.baseURL = '/'
 // fly.config.withCredentials = true
-fly.config.timeout = 8000
+fly.config.timeout = 120000
 
 // 配置请求拦截器
 fly.interceptors.request.use(req => {

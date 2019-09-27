@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'ELUpload',
+  name: 'ElementUpload',
   data () {
     return {
       dialogImageUrl: '',

@@ -8,8 +8,9 @@
 
 <script>
 import Dialog from './components/eldialog'
+
 export default {
-  name: 'ElDialog',
+  name: 'ElementDialog',
   components: {
     Dialog
   },

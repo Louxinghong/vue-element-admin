@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'ElNotification',
+  name: 'ElementNotification',
   methods: {
     open1 () {
       this.$notify.info({

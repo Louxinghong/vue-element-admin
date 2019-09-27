@@ -1,8 +1,17 @@
-import ajax from '@/utils/ajax'
+import { camelCase } from 'lodash'
 
-/**
- * 获取新闻
- * @param {object} data 查询条件
- */
-export const getNews = data =>
-  ajax.get('https://unidemo.dcloud.net.cn/api/news', data)
+const requireApi = require.context(
+  '.',
+  false,
+  /^((?!(index|common|dict|toolbox)).)*.js$/
+)
+const api = requireApi.keys().reduce((total, path) => {
+  const module = requireApi(path)
+  const name = camelCase(path.replace(/(\.\/|\.js)/g, ''))
+
+  total[name] = module.default || module
+
+  return total
+}, {})
+
+export default api
