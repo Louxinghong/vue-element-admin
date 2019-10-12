@@ -63,6 +63,8 @@ export default {
 @notCollapse: 250px;
 
 .wrapper {
+  height: 100%;
+
   .hideCollapse {
     position: absolute;
     background: #000000;
@@ -108,6 +110,7 @@ export default {
 
   .main-container {
     position: relative;
+    height: 100%;
     margin-left: @notCollapse;
     transition: margin-left 0.28s;
 

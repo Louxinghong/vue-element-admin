@@ -9,14 +9,12 @@
 
 <script>
 export default {
-  name: 'ElMessgae',
+  name: 'ElementMessage',
   data () {
-    return {
-
-    }
+    return {}
   },
   methods: {
-    openMessage1 () {
+    async openMessage1 () {
       this.$message({ message: '这是一个成功的信息提醒' })
     },
     openMessage2 () {

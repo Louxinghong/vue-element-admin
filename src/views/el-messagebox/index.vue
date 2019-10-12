@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'ElMessagebox',
+  name: 'ElementMessagebox',
   methods: {
     open () {
       this.$prompt('请输入邮箱', '提示', {

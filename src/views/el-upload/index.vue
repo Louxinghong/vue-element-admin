@@ -1,0 +1,40 @@
+<template>
+  <div class="content">
+    <el-form>
+      <el-form-item label="上传图片：">
+        <el-upload
+          action="https://jsonplaceholder.typicode.com/posts/"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-remove="handleRemove"
+        >
+          <i class="el-icon-plus"></i>
+        </el-upload>
+      </el-form-item>
+    </el-form>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt />
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ElementUpload',
+  data () {
+    return {
+      dialogImageUrl: '',
+      dialogVisible: false
+    }
+  },
+  methods: {
+    handleRemove (file, fileList) {
+      console.log(file, fileList)
+    },
+    handlePictureCardPreview (file) {
+      this.dialogImageUrl = file.url
+      this.dialogVisible = true
+    }
+  }
+}
+</script>

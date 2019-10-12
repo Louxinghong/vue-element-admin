@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'SidebarLogo',
+  name: 'ProjectLogo',
   data () {
     return {
       title: '管理系统'
