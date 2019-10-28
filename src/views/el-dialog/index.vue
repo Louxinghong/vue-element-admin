@@ -2,7 +2,7 @@
   <div class="content">
     <el-button type="text" @click="onAddOpen">新增数据Dialog</el-button>
     <el-button type="text" @click="onEditOpen">编辑数据Dialog</el-button>
-    <Dialog :type="dialogType" :data="dialogData" :show="showDialog" @close="onClose"></Dialog>
+    <Dialog :type="dialogType" :data="dialogData" :show="showDialog" @close="onClose" />
   </div>
 </template>
 

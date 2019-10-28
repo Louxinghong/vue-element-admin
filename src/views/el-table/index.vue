@@ -80,14 +80,36 @@
     </el-table>
 
     <p>总价格：{{ allShoppingsPrice }}</p>
+
+    <el-button type="primary" @click="onAddDialog">新增测试数据</el-button>
+    <el-table ref="testTable" :data="testTableData" tooltip-effect="dark" border>
+      <el-table-column label="标题" prop="title"></el-table-column>
+      <el-table-column label="时间" prop="time"></el-table-column>
+      <el-table-column label="状态" prop="status"></el-table-column>
+      <el-table-column label="操作">
+        <template v-slot="scope">
+          <el-button type="text" @click="onEditDialog(scope.row)">编辑</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <TestDialog
+      :data="testData"
+      :type="showDialogType"
+      :show="showDialog"
+      @close="onCloseTestDialog()"
+    />
   </div>
 </template>
 
 <script>
 import { cloneDeep } from 'lodash'
+import TestDialog from './components/TestDialog.vue'
 
 export default {
   name: 'ElementTable',
+  components: {
+    TestDialog
+  },
   data () {
     return {
       tableData: [
@@ -114,11 +136,21 @@ export default {
           singlePrice: 900
         }
       ],
+      testTableData: [
+        {
+          title: '陪小红度过漫长岁月',
+          time: '2019-09-10',
+          status: '开启'
+        }
+      ],
       multipleSelection: [],
       allShoppingsPrice: 0,
       thisPrice: 0,
       lastChangeNums: 0,
-      selectRecord: {}
+      selectRecord: {},
+      testData: {},
+      showDialogType: 0,
+      showDialog: false
     }
   },
 
@@ -150,6 +182,20 @@ export default {
       this.multipleSelection.forEach(
         item => (this.allShoppingsPrice += item.num * item.singlePrice)
       )
+    },
+    onAddDialog () {
+      this.showDialogType = 0
+      this.showDialog = true
+    },
+    onEditDialog (data) {
+      this.showDialogType = 1
+      this.showDialog = true
+      this.testData = cloneDeep(data)
+    },
+    onCloseTestDialog (reload) {
+      this.showDialogType = 0
+      this.showDialog = false
+      this.testData = {}
     }
   }
 }
