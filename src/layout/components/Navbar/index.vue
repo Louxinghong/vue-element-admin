@@ -12,15 +12,26 @@
       </transition-group>
     </el-breadcrumb>
     <div class="right-set">
-      <svg-icon icon-class="setting" @click.native="onChangeSetting"></svg-icon>
+      <Search />
+      <Screenfull />
+      <Setting />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Search from './components/Search.vue'
+import Screenfull from './components/Screenfull.vue'
+import Setting from './components/Setting.vue'
+
 export default {
   name: 'NavBar',
+  components: {
+    Search,
+    Screenfull,
+    Setting
+  },
   data () {
     return {
       breadcrumbs: null
@@ -112,10 +123,5 @@ export default {
   right: 0;
   bottom: 0;
   margin-right: 20px;
-
-  .svg-icon {
-    font-size: 20px;
-    cursor: pointer;
-  }
 }
 </style>
