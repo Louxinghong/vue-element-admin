@@ -1,24 +1,23 @@
 <template>
   <div class="wrapper" :class="classAll">
     <div class="hideCollapse" v-show="isMobile && !isCollapse" @click="handleCollapse"></div>
-    <SideBar class="side-container"></SideBar>
+    <SideBar class="side-container" />
     <div class="main-container">
-      <NavBar class="navbar-container"></NavBar>
-      <main-content class="main-content"></main-content>
+      <NavBar class="navbar-container" />
+      <MainContent class="main-content" />
     </div>
-    <setting-panel></setting-panel>
-    <back-to-top></back-to-top>
+    <SettingPanel />
+    <BackToTop />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import adaptation from './mixins/adaptation.js'
 import SideBar from '@/layout/components/Sidebar/index.vue'
 import NavBar from '@/layout/components/Navbar/index.vue'
 import MainContent from '@/layout/components/Maincontainer/index.vue'
-import BackToTop from '@/layout/components/Backtotop/index.vue'
 import SettingPanel from '@/layout/components/Settingpanel/index.vue'
+import BackToTop from '@/layout/components/Backtotop/index.vue'
 
 export default {
   name: 'Layout',
@@ -47,8 +46,8 @@ export default {
     SideBar,
     NavBar,
     MainContent,
-    BackToTop,
-    SettingPanel
+    SettingPanel,
+    BackToTop
   },
   methods: {
     handleCollapse () {
