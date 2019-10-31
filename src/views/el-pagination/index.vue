@@ -54,7 +54,7 @@ export default {
       const documentHeight = document.body.clientHeight
 
       console.log(documentHeight)
-      this.tableHeight = documentHeight - 150
+      this.tableHeight = documentHeight - 180
 
       const data = {
         time: '',
@@ -84,7 +84,10 @@ export default {
     },
     onCurrentChange (val) {
       this.tableData = this.allData.filter((item, index) => {
-        return index >= (val - 1) * this.pageContent.pageSize && index < val * this.pageContent.pageSize
+        return (
+          index >= (val - 1) * this.pageContent.pageSize &&
+          index < val * this.pageContent.pageSize
+        )
       })
       this.pageContent.currentPage = val
     },

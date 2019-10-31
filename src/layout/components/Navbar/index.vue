@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import Breadcrumb from './components/Breadcrumb.vue'
 import Search from './components/Search.vue'
 import Screenfull from './components/Screenfull.vue'
@@ -26,6 +26,14 @@ export default {
     Search,
     Screenfull,
     Setting
+  },
+  computed: {
+    isCollapse () {
+      return this.$store.state.status.isCollapse
+    }
+  },
+  methods: {
+    ...mapActions('status', ['changeCollapse'])
   }
 }
 </script>
