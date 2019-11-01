@@ -8,6 +8,7 @@ import components from './components'
 import './styles/main.less'
 import './styles/reset.less'
 import './icons'
+import { getToken } from '@/utils/auth.js'
 
 Vue.use(ElementUI)
 
@@ -19,7 +20,15 @@ router.beforeEach((to, from, next) => {
   if (!to.matched || to.matched.length === 0) {
     next('/404')
   } else {
-    next()
+    if (getToken()) {
+      console.log('get')
+      if (to.path === '/login') {
+        next({ path: '/' })
+      }
+      next()
+    } else if (getToken() === 'undefined') {
+      next('/login')
+    }
   }
 })
 
