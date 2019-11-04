@@ -1,7 +1,7 @@
 <template>
   <div class="screenfull">
     <svg-icon
-      :icon-class="isScreenfull ? 'exit-screenfull' : 'screenfull'"
+      :icon-class="isFullscreen ? 'exit-screenfull' : 'screenfull'"
       @click.native="handleClick"
     ></svg-icon>
   </div>
@@ -14,7 +14,7 @@ export default {
   name: 'Screenfull',
   data () {
     return {
-      isScreenfull: false
+      isFullscreen: false
     }
   },
   mounted () {
@@ -34,7 +34,7 @@ export default {
     init () {
       if (screenfull.enabled) {
         screenfull.on('change', () => {
-          this.isScreenfull = screenfull.isFullscreen
+          this.isFullscreen = screenfull.isFullscreen
         })
       }
     }

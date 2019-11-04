@@ -9,15 +9,19 @@
       <Screenfull />
       <Setting />
     </div>
+    <div class="right-person">
+      <Person />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import Breadcrumb from './components/Breadcrumb.vue'
 import Search from './components/Search.vue'
 import Screenfull from './components/Screenfull.vue'
 import Setting from './components/Setting.vue'
+import Person from './components/Person.vue'
 
 export default {
   name: 'NavBar',
@@ -25,7 +29,16 @@ export default {
     Breadcrumb,
     Search,
     Screenfull,
-    Setting
+    Setting,
+    Person
+  },
+  computed: {
+    isCollapse () {
+      return this.$store.state.status.isCollapse
+    }
+  },
+  methods: {
+    ...mapActions('status', ['changeCollapse'])
   }
 }
 </script>
@@ -53,8 +66,16 @@ export default {
 .right-set {
   position: absolute;
   top: 0;
+  right: 65px;
+  bottom: 0;
+}
+
+.right-person {
+  position: absolute;
+  top: 0;
   right: 0;
   bottom: 0;
   margin-right: 20px;
+  vertical-align: middle;
 }
 </style>

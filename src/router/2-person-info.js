@@ -5,10 +5,17 @@ export const routes = [
     path: '/person-info',
     name: 'PersonInfo',
     component: Layout,
-    redirect: '/person-info/my-curriculum-vitae',
+    redirect: '/person-info/person-center',
     meta: { title: '个人信息', icon: 'person-info' },
     alwaysShow: true,
     children: [
+      {
+        path: 'person-center',
+        name: 'PersonInfoPersonCenter',
+        component: () =>
+          import(/*webpackChunkName: 'group-person-info' */ '@/views/person-info/person-center/index.vue'),
+        meta: { title: '个人中心', icon: '' }
+      },
       {
         path: 'my-curriculum-vitae',
         name: 'PersonInfoCurriculumVitae',

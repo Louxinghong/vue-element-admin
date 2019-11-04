@@ -14,10 +14,33 @@ body {
   box-sizing: inherit;
 }
 
-a {
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
   text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:active {
+  outline: none;
 }
 
 #app {
   height: 100%;
+}
+
+.clearfix::before,
+.clearfix::after {
+  display: table;
+  content: "";
+}
+
+.clearfix::after {
+  clear: both;
 }

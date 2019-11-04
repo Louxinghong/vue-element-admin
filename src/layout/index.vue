@@ -4,6 +4,7 @@
     <SideBar class="side-container" />
     <div class="main-container">
       <NavBar class="navbar-container" />
+      <TagsView />
       <MainContent class="main-content" />
     </div>
     <SettingPanel />
@@ -15,6 +16,7 @@
 import adaptation from './mixins/adaptation.js'
 import SideBar from '@/layout/components/Sidebar/index.vue'
 import NavBar from '@/layout/components/Navbar/index.vue'
+import TagsView from '@/layout/components/TagsView/index.vue'
 import MainContent from '@/layout/components/Maincontainer/index.vue'
 import SettingPanel from '@/layout/components/Settingpanel/index.vue'
 import BackToTop from '@/layout/components/Backtotop/index.vue'
@@ -45,6 +47,7 @@ export default {
   components: {
     SideBar,
     NavBar,
+    TagsView,
     MainContent,
     SettingPanel,
     BackToTop
@@ -71,7 +74,7 @@ export default {
     width: 100%;
     height: 100%;
     top: 0px;
-    z-index: 999;
+    z-index: 9999;
   }
 
   .side-container {
@@ -81,7 +84,7 @@ export default {
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 9999;
     overflow-x: hidden;
     transition: width 0.28s;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
@@ -93,6 +96,7 @@ export default {
       .el-menu {
         height: 100%;
         width: 100% !important;
+        border: none;
 
         .svg-icon {
           font-size: 20px;
