@@ -59,6 +59,9 @@ export default {
         if (valid) {
           this.loading = true
           setToken(this.form)
+          this.$router.replace({ name: 'Dashboard' })
+        } else {
+          this.loading = false
         }
       })
     }

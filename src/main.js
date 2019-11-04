@@ -16,6 +16,9 @@ Object.keys(components).forEach(key => {
   Vue.component(key, components[key])
 })
 
+// 不重定向白名单
+const whiteList = ['/login', '/404']
+
 router.beforeEach((to, from, next) => {
   if (!to.matched || to.matched.length === 0) {
     next('/404')
@@ -24,10 +27,15 @@ router.beforeEach((to, from, next) => {
       console.log('get')
       if (to.path === '/login') {
         next({ path: '/' })
+      } else {
+        next()
       }
-      next()
-    } else if (getToken() === 'undefined') {
-      next('/login')
+    } else {
+      if (whiteList.includes(to.path)) {
+        next()
+      } else {
+        next({ name: 'Login', query: { redirect: to.path } })
+      }
     }
   }
 })

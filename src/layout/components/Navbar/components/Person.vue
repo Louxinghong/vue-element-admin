@@ -12,7 +12,7 @@
             <span>个人中心</span>
           </el-dropdown-item>
         </router-link>
-        <el-dropdown-item>
+        <el-dropdown-item @click.native="handleLogout">
           <svg-icon icon-class="exit"></svg-icon>
           <span>退出</span>
         </el-dropdown-item>
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { removeToken } from '@/utils/auth.js'
+
 export default {
   name: 'PersonContent',
   data () {
@@ -30,6 +32,12 @@ export default {
       //   'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
       avatarUrl: require('../../../../images/avatar.jpg'),
       size: 'medium'
+    }
+  },
+  methods: {
+    handleLogout () {
+      removeToken()
+      this.$router.replace({ name: 'Login' })
     }
   }
 }
