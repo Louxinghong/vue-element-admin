@@ -9,6 +9,7 @@
 // import { isExternal } from '@/utils'
 export default {
   name: 'SvgIcon',
+  global: true,
   props: {
     iconClass: {
       type: String,

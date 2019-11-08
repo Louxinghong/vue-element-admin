@@ -4,7 +4,7 @@ const components = requireComponents.keys().reduce((total, path) => {
   const component = module.default || module
   const { name, global } = component
 
-  if (!global) {
+  if (global) {
     total[name] = component
   }
 
