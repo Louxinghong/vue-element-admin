@@ -14,6 +14,7 @@ const tinymceCDN =
 
 export default {
   name: 'Tinymce',
+  global: true,
   props: {
     id: {
       type: String,
