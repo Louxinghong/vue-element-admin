@@ -98,17 +98,20 @@
       :show="showDialog"
       @close="onCloseTestDialog()"
     />
+    <TableDetailTest />
   </div>
 </template>
 
 <script>
 import { cloneDeep } from 'lodash'
 import TestDialog from './components/TestDialog.vue'
+import TableDetailTest from './components/TableDetailTest.vue'
 
 export default {
   name: 'ElementTable',
   components: {
-    TestDialog
+    TestDialog,
+    TableDetailTest
   },
   data () {
     return {
