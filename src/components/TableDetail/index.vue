@@ -13,6 +13,7 @@ import TableContainer from './components/TableContainer.vue'
 
 export default {
   name: 'TableDetail',
+  global: true,
   components: {
     FilterContainer,
     OperationContainer,
@@ -36,10 +37,11 @@ export default {
     }
   },
   created () {
+    const { filterData, filterOptions, $set } = this
     filterData.forEach(item => {
       item.trigger
-        ? this.$set(filterOptions, item.name, item.initialValue || []) // 日期范围或次级联组件
-        : this.$set(filterOptions, item.name, item.initialValue || '') // 输入框或下拉框组件
+        ? $set(filterOptions, item.name, item.initialValue || []) // 日期范围或次级联组件
+        : $set(filterOptions, item.name, item.initialValue || '') // 输入框或下拉框组件
     })
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="table-detail-test">
-    <table-detail :filter-data="filterData"></table-detail>
+    <table-detail :filter-data="filterData" />
   </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
         }
       ]
     }
-  }
+  },
+  created () {}
 }
 </script>
