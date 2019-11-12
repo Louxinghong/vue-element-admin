@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import store from './store'
-import 'element-ui/lib/theme-chalk/index.css'
 import components from './components'
+import filters from './filters'
 import './styles/main.less'
 import './styles/reset.less'
 import './icons'
@@ -12,8 +13,14 @@ import { getToken } from '@/utils/auth.js'
 
 Vue.use(ElementUI)
 
+// 注册全局组件
 Object.keys(components).forEach(key => {
   Vue.component(key, components[key])
+})
+
+// 注册全局过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
 })
 
 // 不重定向白名单

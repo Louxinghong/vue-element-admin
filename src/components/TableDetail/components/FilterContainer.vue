@@ -3,7 +3,7 @@
     <el-form ref="form" inline :model="filterOptions">
       <el-form-item
         v-for="(item, index) in filterData"
-        :Key="index"
+        :key="index"
         :label="item.label + ':'"
         :prop="item.name"
       >

@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import { dictToOptions, ADDRESS_STATUS } from '@/api/dict'
+import { optionsDict } from '@/utils'
+
 export default {
   name: 'TableDetailTest',
   data () {
@@ -18,7 +21,8 @@ export default {
         {
           name: 'address',
           label: '地址',
-          type: 'select'
+          type: 'select',
+          options: []
         },
         {
           name: 'date',
@@ -28,6 +32,10 @@ export default {
       ]
     }
   },
-  created () {}
+  created () {
+    const addressStatus = dictToOptions(ADDRESS_STATUS)
+    console.log(addressStatus)
+    optionsDict(this.filterData, 'address', 'options', addressStatus)
+  }
 }
 </script>
