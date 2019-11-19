@@ -1,8 +1,8 @@
 <template>
   <div class="table-detail">
-    <FilterContainer />
-    <OperationContainer />
-    <TableContainer />
+    <FilterContainer ref="filterContainer" />
+    <OperationContainer ref="operationContainer" />
+    <TableContainer ref="tableContainer" :loading="loading" :data="data" />
   </div>
 </template>
 
@@ -22,11 +22,24 @@ export default {
   provide () {
     return {
       filterData: this.filterData,
-      filterOptions: this.filterOptions
+      filterOptions: this.filterOptions,
+      columnData: this.columnData
     }
   },
   props: {
+    loading: {
+      type: Boolean,
+      default: false
+    },
     filterData: {
+      type: Array,
+      default: () => []
+    },
+    columnData: {
+      type: Array,
+      default: () => []
+    },
+    data: {
       type: Array,
       default: () => []
     }
