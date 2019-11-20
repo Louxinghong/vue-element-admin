@@ -9,7 +9,7 @@
       <el-form-item label="标题" prop="title">
         <el-input v-model="form.title"></el-input>
       </el-form-item>
-      <el-form-item label="时间" :prop="type === 0 ? 'time' : ''">
+      <el-form-item label="时间" prop="time">
         <el-date-picker v-model="form.time" type="date" format="yyyy-MM-dd" placeholder="请选择日期"></el-date-picker>
       </el-form-item>
       <el-form-item label="状态" prop="status">
@@ -38,7 +38,7 @@ export default {
       default: false
     },
     data: {
-      type: Object,
+      type: Object
     }
   },
   data () {
@@ -78,7 +78,6 @@ export default {
     onSubmit () {
       this.$refs.form.validate(valid => {
         if (valid) {
-
         }
       })
     }

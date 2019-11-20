@@ -81,6 +81,8 @@
 
     <p>总价格：{{ allShoppingsPrice }}</p>
 
+    <el-divider></el-divider>
+
     <el-button type="primary" @click="onAddDialog">新增测试数据</el-button>
     <el-table ref="testTable" :data="testTableData" tooltip-effect="dark" border>
       <el-table-column label="标题" prop="title"></el-table-column>
@@ -98,17 +100,23 @@
       :show="showDialog"
       @close="onCloseTestDialog()"
     />
+
+    <el-divider></el-divider>
+
+    <TableDetailTest />
   </div>
 </template>
 
 <script>
 import { cloneDeep } from 'lodash'
 import TestDialog from './components/TestDialog.vue'
+import TableDetailTest from './components/TableDetailTest.vue'
 
 export default {
   name: 'ElementTable',
   components: {
-    TestDialog
+    TestDialog,
+    TableDetailTest
   },
   data () {
     return {
@@ -175,7 +183,7 @@ export default {
       this.$set(this.tableData, index, cloneDeep(this.selectRecord))
       this.selectRecord = {}
     },
-    onSubmit () { },
+    onSubmit () {},
     handleSelectionChange (val) {
       this.multipleSelection = val
       this.allShoppingsPrice = 0
