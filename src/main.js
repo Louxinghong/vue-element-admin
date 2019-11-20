@@ -6,16 +6,12 @@ import router from './router'
 import store from './store'
 import components from './components'
 import filters from './filters'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import './styles/main.less'
 import './styles/reset.less'
 import './icons'
 import { getToken } from '@/utils/auth.js'
 
 Vue.use(ElementUI)
-
-Vue.config.productionTip = false
 
 // 注册全局组件
 Object.keys(components).forEach(key => {
@@ -30,12 +26,7 @@ Object.keys(filters).forEach(key => {
 // 不重定向白名单
 const whiteList = ['/login', '/404']
 
-// 进度条配置
-NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false })
-
 router.beforeEach((to, from, next) => {
-  NProgress.start()
-
   if (!to.matched || to.matched.length === 0) {
     next('/404')
   } else {
@@ -56,9 +47,7 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-router.afterEach((to, from) => {
-  NProgress.done()
-})
+Vue.config.productionTip = false
 
 new Vue({
   router,
