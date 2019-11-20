@@ -4,6 +4,6 @@ export const routes = [
     name: 'Error404',
     hidden: true,
     component: () =>
-      import(/*webpackChunkName: 'group-error404' */ '@/views/error404/index.vue')
+      import(/*webpackChunkName: 'group-error404' */ '@/views/error-404/index.vue')
   }
 ]

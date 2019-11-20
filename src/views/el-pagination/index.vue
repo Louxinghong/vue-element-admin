@@ -53,7 +53,6 @@ export default {
     async onGetNews () {
       const documentHeight = document.body.clientHeight
 
-      console.log(documentHeight)
       this.tableHeight = documentHeight - 180
 
       const data = {

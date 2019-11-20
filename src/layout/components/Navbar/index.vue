@@ -7,6 +7,7 @@
     <div class="right-set">
       <Search />
       <Screenfull />
+      <ErrorLog />
       <Setting />
     </div>
     <div class="right-person">
@@ -20,6 +21,7 @@ import { mapActions } from 'vuex'
 import Breadcrumb from './components/Breadcrumb.vue'
 import Search from './components/Search.vue'
 import Screenfull from './components/Screenfull.vue'
+import ErrorLog from './components/ErrorLog.vue'
 import Setting from './components/Setting.vue'
 import Person from './components/Person.vue'
 
@@ -29,6 +31,7 @@ export default {
     Breadcrumb,
     Search,
     Screenfull,
+    ErrorLog,
     Setting,
     Person
   },
