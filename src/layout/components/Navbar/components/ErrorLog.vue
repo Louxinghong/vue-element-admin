@@ -1,6 +1,8 @@
 <template>
   <div class="error-log">
-    <svg-icon icon-class="error-log" @click.native="show = true"></svg-icon>
+    <el-badge :is-dot="logs.length > 0" @click.native="show = true">
+      <svg-icon icon-class="error-log"></svg-icon>
+    </el-badge>
     <el-dialog title="错误日志" :visible.sync="show" :append-to-body="true" top="10vh" width="80%">
       <el-table :data="logs" border>
         <el-table-column label="信息">
@@ -11,7 +13,7 @@
             </div>
             <div class="info-content">
               <span class="message-title">Info:</span>
-              <el-tag type="warning">{{scope.row.vm.$vnode.tag}} error in {{scoped.row.info}}</el-tag>
+              <el-tag type="warning">{{scope.row.vm.$vnode.tag}} error in {{scope.row.info}}</el-tag>
             </div>
             <div class="info-content">
               <span class="message-title">Url:</span>
@@ -57,27 +59,34 @@ export default {
 <style lang="less" scoped>
 .error-log {
   display: inline-block;
-  font-size: 17.5px;
+  font-size: 17px;
   cursor: pointer;
   margin-right: 15px;
+}
 
-  /deep/ .el-dialog {
-    .el-dialog__body {
-      .info-content {
-        &:not(:last-child) {
-          margin-bottom: 5px;
-        }
+.el-badge {
+  line-height: 1;
+}
 
-        .message-title {
-          padding-right: 5px;
+/deep/ .el-dialog {
+  .el-dialog__body {
+    td {
+      &:nth-child(1) {
+        .info-content {
+          &:not(:last-child) {
+            margin-bottom: 5px;
+          }
+
+          .message-title {
+            padding-right: 5px;
+          }
         }
       }
-      td {
-        &:nth-child(2) {
-          display: block;
-          height: 99px;
-          overflow-y: scroll;
-        }
+
+      &:nth-child(2) {
+        display: block;
+        height: 100%;
+        overflow-y: scroll;
       }
     }
   }

@@ -6,7 +6,6 @@ export default {
   getters: {},
   mutations: {
     ADD_ERROR_LOG (state, log) {
-      console.log('add')
       state.logs.push(log)
     },
     CLEAR_ERROR_LOG (state) {

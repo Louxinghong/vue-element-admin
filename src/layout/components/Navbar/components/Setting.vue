@@ -18,7 +18,7 @@ export default {
 <style lang="less" scoped>
 .setting {
   display: inline-block;
-  font-size: 17.5px;
+  font-size: 17px;
   cursor: pointer;
 }
 </style>

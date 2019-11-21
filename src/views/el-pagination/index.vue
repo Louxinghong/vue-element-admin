@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <el-button type="primary" @click="onTest">测试链接</el-button>
     <el-table
       ref="table"
       v-loading="loading"
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import { getNews } from '@/api/news'
+import { getNews, getTest } from '@/api/news'
 
 export default {
   name: 'ElementPagination',
@@ -96,6 +97,9 @@ export default {
       this.tableData = this.allData.filter((item, index) => {
         return index < this.pageContent.pageSize
       })
+    },
+    async onTest () {
+      await getTest()
     }
   }
 }
