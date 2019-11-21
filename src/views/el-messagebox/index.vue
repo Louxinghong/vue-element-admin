@@ -56,6 +56,7 @@ export default {
           }
         }
       }).then(val => {
+        this.loading = false
         this.$message({
           type: 'success',
           message: '修改展期审核利率为' + val.value
