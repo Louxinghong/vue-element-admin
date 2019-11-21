@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <svg-icon icon-class="error"></svg-icon>
+    <svg-icon icon-class="error-404"></svg-icon>
     <div class="warnWord">抱歉，您访问的路径有误</div>
     <div class="go-btn">
       <el-button type="primary" size="small" @click="onGoBack">返回上页</el-button>

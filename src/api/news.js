@@ -6,3 +6,10 @@ import ajax from '@/utils/ajax'
  */
 export const getNews = data =>
   ajax.get('https://unidemo.dcloud.net.cn/api/news', data)
+
+/**
+ * 测试错误请求
+ * @param {object} data 查询数据
+ */
+export const getTest = data =>
+  ajax.get('https://unidemo.net.cn/api/news', data)

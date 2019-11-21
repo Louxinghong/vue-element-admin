@@ -144,11 +144,11 @@ export default {
 <style lang="less" scoped>
 .page-search {
   display: inline-block;
+  font-size: 17px;
   margin-right: 15px;
 
   .search {
     cursor: pointer;
-    font-size: 17.5px;
   }
 
   .search-select {

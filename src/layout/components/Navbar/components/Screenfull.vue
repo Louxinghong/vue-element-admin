@@ -45,7 +45,7 @@ export default {
 <style lang="less" scoped>
 .screenfull {
   display: inline-block;
-  font-size: 16.5px;
+  font-size: 17px;
   cursor: pointer;
   margin-right: 15px;
 }
