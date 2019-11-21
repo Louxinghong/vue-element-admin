@@ -13,3 +13,10 @@ export const getNews = data =>
  */
 export const getTest = data =>
   ajax.get('https://unidemo.net.cn/api/news', data)
+
+/**
+ * 获取cnode新闻
+ * @param {object} data 查询数据
+ */
+export const getCnodeNews = params =>
+  ajax.get('https://cnodejs.org/api/v1/topics', { params })

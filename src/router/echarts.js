@@ -13,7 +13,7 @@ export const routes = [
         name: 'EchartsContent',
         component: () =>
           import(/* webpackChunkName: 'group-echarts' */ '@/views/echarts/index.vue'),
-        meta: { title: 'echarts 图表', icon: '' }
+        meta: { title: 'echarts 图表', icon: 'echarts' }
       }
     ]
   }
