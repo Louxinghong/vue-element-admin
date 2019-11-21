@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import components from './components'
 import filters from './filters'
+import echarts from 'echarts'
 import './permission'
 import './errorHandler'
 import './styles/main.less'
@@ -13,6 +14,7 @@ import './styles/reset.less'
 import './icons'
 
 Vue.use(ElementUI)
+Vue.prototype.$echarts = echarts 
 
 // 注册全局组件
 Object.keys(components).forEach(key => {

@@ -21,8 +21,15 @@ export default {
     this.init()
   },
   methods: {
+    init () {
+      if (screenfull.isEnabled) {
+        screenfull.on('change', () => {
+          this.isFullscreen = screenfull.isFullscreen
+        })
+      }
+    },
     handleClick () {
-      if (!screenfull.enabled) {
+      if (!screenfull.isEnabled) {
         this.$message({
           message: '该浏览器不支持全屏功能',
           type: 'warning'
@@ -30,13 +37,6 @@ export default {
         return false
       }
       screenfull.toggle()
-    },
-    init () {
-      if (screenfull.enabled) {
-        screenfull.on('change', () => {
-          this.isFullscreen = screenfull.isFullscreen
-        })
-      }
     }
   }
 }
