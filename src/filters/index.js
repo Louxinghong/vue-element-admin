@@ -1,13 +1,6 @@
-import { camelCase } from 'lodash'
+import requireAll from '@/utils/requireAll'
 
 const requireFilters = require.context('.', false, /^((?!index).)*.js$/)
-const filters = requireFilters.keys().reduce((total, path) => {
-  const module = requireFilters(path)
-  const name = camelCase(path.replace(/(\.\/|\.js)/g, ''))
+const filters = requireAll(requireFilters)
 
-  total[name] = module.default || module
-
-  return total
-}, {})
-// console.log(filters)
 export default filters

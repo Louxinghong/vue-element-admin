@@ -1,17 +1,10 @@
-import { camelCase } from 'lodash'
+import requireAll from '@/utils/requireAll'
 
 const requireApi = require.context(
   '.',
   false,
   /^((?!(index|common|dict|toolbox)).)*.js$/
 )
-const api = requireApi.keys().reduce((total, path) => {
-  const module = requireApi(path)
-  const name = camelCase(path.replace(/(\.\/|\.js)/g, ''))
-
-  total[name] = module.default || module
-
-  return total
-}, {})
+const api = requireAll(requireApi)
 
 export default api

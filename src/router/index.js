@@ -20,7 +20,7 @@ Vue.use(VueRouter)
 **/
 
 var allRoutes = []
-const requireRoutes = require.context('.', false, /^((?!(index)).)*.js$/)
+const requireRoutes = require.context('./routes', false, /^((?!(index)).)*.js$/)
 export const routes = requireRoutes.keys().reduce((total, path) => {
   const module = requireRoutes(path).routes
   allRoutes = allRoutes.concat(module)

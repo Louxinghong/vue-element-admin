@@ -1,18 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getters'
+import requireAll from '@/utils/requireAll'
 
 Vue.use(Vuex)
 
 const requireModules = require.context('./modules', false, /\.js$/)
-const modules = requireModules.keys().reduce((total, path) => {
-  const module = requireModules(path)
-  const name = path.replace(/(\.\/|\.js)/g, '')
-
-  total[name] = module.default || module
-
-  return total
-}, {})
+const modules = requireAll(requireModules)
 
 export default new Vuex.Store({
   modules,
