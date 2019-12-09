@@ -2,7 +2,7 @@
   <div class="container">
     <p>
       <span>父组件title：</span>
-      <span>{{title}}</span>
+      <span>{{ title }}</span>
     </p>
     <el-button type="primary" @click="onChangeTitle" size="mini">父组件：更改title</el-button>
     <child :title.sync="title" />

@@ -9,22 +9,22 @@
           <template v-slot="scope">
             <div class="info-content">
               <span class="message-title">Msg:</span>
-              <el-tag type="danger">{{scope.row.err.message}}</el-tag>
+              <el-tag type="danger">{{ scope.row.err.message }}</el-tag>
             </div>
             <div class="info-content">
               <span class="message-title">Info:</span>
-              <el-tag type="warning">{{scope.row.vm.$vnode.tag}} error in {{scope.row.info}}</el-tag>
+              <el-tag type="warning">{{scope.row.vm.$vnode.tag}} error in {{ scope.row.info }}</el-tag>
             </div>
             <div class="info-content">
               <span class="message-title">Url:</span>
-              <el-tag type="success">{{scope.row.url}}</el-tag>
+              <el-tag type="success">{{ scope.row.url }}</el-tag>
             </div>
           </template>
         </el-table-column>
         <el-table-column label="详细">
           <template
             v-slot="scope"
-          >{{scope.row.err.stack ? scope.row.err.stack : JSON.stringify(scope.row.err)}}</template>
+          >{{ scope.row.err.stack ? scope.row.err.stack : JSON.stringify(scope.row.err) }}</template>
         </el-table-column>
       </el-table>
       <template v-slot:footer>

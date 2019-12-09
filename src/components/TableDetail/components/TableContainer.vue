@@ -19,7 +19,7 @@
                 type="text"
                 size="mini"
                 :key="i"
-              >{{typeof operation.label === 'string' ? operation.label : operation.label(row, column, $index)}}</el-button>
+              >{{ typeof operation.label === 'string' ? operation.label : operation.label(row, column, $index) }}</el-button>
             </template>
           </template>
         </el-table-column>
@@ -32,7 +32,7 @@
               v-show="typeof tag.show === 'function' ? tag.show(tag) : true"
               :type="tag.type"
               style="margin-right: 10px;"
-            >{{item.formatter ? item.formatter(row, column, tag, $index) : tag.label}}</el-tag>
+            >{{ item.formatter ? item.formatter(row, column, tag, $index) : tag.label }}</el-tag>
           </template>
         </el-table-column>
         <!-- 图片列 -->

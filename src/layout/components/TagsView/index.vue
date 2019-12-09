@@ -22,7 +22,7 @@
           :to="tag"
           @contextmenu.prevent.native="openContext(tag, $event)"
         >
-          {{tag.title}}
+          {{ tag.title }}
           <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
         </router-link>
       </div>

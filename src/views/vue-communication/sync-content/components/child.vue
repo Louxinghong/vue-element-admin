@@ -2,7 +2,7 @@
   <div class="container">
     <p>
       <span>这是从父组件获取的title：</span>
-      <span>{{title}}</span>
+      <span>{{ title }}</span>
     </p>
     <el-button type="primary" @click="onChangeFatherTitle" size="mini">子组件：改变父组件title</el-button>
   </div>

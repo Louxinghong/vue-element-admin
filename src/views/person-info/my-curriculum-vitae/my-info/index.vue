@@ -1,6 +1,6 @@
 <template>
   <div id="content">
-    <h1 ref="test">{{test}}</h1>
+    <h1 ref="test">{{ test }}</h1>
     <el-button type="primary" @click="handleTest">点击更改test</el-button>
     <el-input v-model="testTwo"></el-input>
   </div>
