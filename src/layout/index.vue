@@ -27,6 +27,14 @@ export default {
     return {}
   },
   mixins: [adaptation],
+    components: {
+    SideBar,
+    NavBar,
+    TagsView,
+    MainContent,
+    SettingPanel,
+    BackToTop
+  },
   computed: {
     isCollapse () {
       return this.$store.state.status.isCollapse
@@ -44,13 +52,14 @@ export default {
       }
     }
   },
-  components: {
-    SideBar,
-    NavBar,
-    TagsView,
-    MainContent,
-    SettingPanel,
-    BackToTop
+  watch: {
+    isCloseSidebar: {
+      handler: function (val) {
+        if (val && !this.isCollapse) {
+          this.$store.dispatch('status/changeCollapse')
+        }
+      }
+    }
   },
   methods: {
     handleCollapse () {
