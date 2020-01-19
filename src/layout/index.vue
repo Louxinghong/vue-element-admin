@@ -77,7 +77,7 @@ export default {
   height: 100%;
 
   .hideCollapse {
-    position: absolute;
+    position: fixed;
     background: #000000;
     opacity: 0.3;
     width: 100%;
