@@ -27,7 +27,7 @@ export default {
     return {}
   },
   mixins: [adaptation],
-    components: {
+  components: {
     SideBar,
     NavBar,
     TagsView,
