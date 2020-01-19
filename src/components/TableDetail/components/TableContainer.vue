@@ -42,7 +42,7 @@
           :width="item.width"
           :key="index"
         >
-          <template v-slot="{ row, column, $index }">
+          <template v-slot="{ row }">
             <img
               :src="row[item.name]"
               :width="item.image.width || '100%'"
@@ -59,7 +59,7 @@
           size="mini"
           :key="index"
         >
-          <template v-slot="{ row, column, $index }">
+          <template v-slot="{ row }">
             <el-switch
               v-model="row[item.name]"
               @change="item.switch.onChange($event, row)"

@@ -69,7 +69,7 @@
         <template slot-scope="scope">
           <template v-if="scope.row.isEdit">
             <el-button type="text" @click="onCancel(scope.$index)">取消</el-button>
-            <el-button type="text" @click="onSubmit">保存</el-button>
+            <el-button type="text" @click="onSubmit(scope)">保存</el-button>
           </template>
           <template v-else>
             <el-button @click="onEdit(scope)" type="text">编辑</el-button>
@@ -166,7 +166,7 @@ export default {
     handleChangeNums (val) {
       this.allShoppingsPrice = 0
       this.multipleSelection.forEach(
-        item => (this.allShoppingsPrice += item.num * item.singlePrice)
+        item => this.allShoppingsPrice += item.num * item.singlePrice
       )
     },
     onEdit (scope) {
@@ -179,16 +179,19 @@ export default {
     },
     onCancel (index) {
       this.selectRecord.isEdit = false
-      console.log(this.selectRecord)
       this.$set(this.tableData, index, cloneDeep(this.selectRecord))
       this.selectRecord = {}
     },
-    onSubmit () {},
+    onSubmit (scope) {
+      const { row, $index } = scope
+      this.tableData[$index].isEdit = false
+      delete this.tableData[$index].isEdit
+    },
     handleSelectionChange (val) {
       this.multipleSelection = val
       this.allShoppingsPrice = 0
       this.multipleSelection.forEach(
-        item => (this.allShoppingsPrice += item.num * item.singlePrice)
+        item => this.allShoppingsPrice += item.num * item.singlePrice
       )
     },
     onAddDialog () {

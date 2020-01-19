@@ -13,7 +13,7 @@ import './styles/main.less'
 import './styles/reset.less'
 import './icons'
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, { size: 'small' })
 Vue.prototype.$echarts = echarts 
 
 // 注册全局组件

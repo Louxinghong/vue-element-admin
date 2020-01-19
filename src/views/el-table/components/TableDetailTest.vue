@@ -5,7 +5,11 @@
       :filter-data="filterData"
       :column-data="columnData"
       :data="data"
-    />
+    >
+      <template v-slot:left-operation>
+        <el-button icon="el-icon-plus">新增</el-button>
+      </template>
+    </table-detail>
   </div>
 </template>
 
@@ -123,6 +127,11 @@ export default {
     const addressStatus = dictToOptions(ADDRESS_STATUS)
     console.log(addressStatus)
     optionsDict(this.filterData, 'address', 'options', addressStatus)
+  },
+  methods: {
+    onPostgraduate () {
+      this.$notify.success({ title: '成功', message: '考研成功' })
+    }
   }
 }
 </script>

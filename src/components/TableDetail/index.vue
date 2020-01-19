@@ -1,7 +1,14 @@
 <template>
   <div class="table-detail">
     <FilterContainer ref="filterContainer" />
-    <OperationContainer ref="operationContainer" />
+    <OperationContainer ref="operationContainer" :loading="loading">
+      <template v-slot:left-operation>
+        <slot name="left-operation"></slot>
+      </template>
+      <template v-slot:right-operation>
+        <slot name="right-operation"></slot>
+      </template>
+    </OperationContainer>
     <TableContainer ref="tableContainer" :loading="loading" :data="data" />
   </div>
 </template>
