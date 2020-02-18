@@ -3,6 +3,8 @@ function resolve (dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
+  // 打包路径
+  publicPath: './',
   // 输出目录
   outputDir: 'dist',
   lintOnSave: true,
