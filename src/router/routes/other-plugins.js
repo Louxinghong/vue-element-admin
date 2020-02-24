@@ -13,15 +13,28 @@ export const routes = [
         path: 'tinymce',
         name: 'Tinymce',
         component: () =>
-          import(/*webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/tinymce/index.vue'),
+          import(
+            /* webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/tinymce/index.vue'
+          ),
         meta: { title: 'tinymce 富文本编辑器', icon: '' }
       },
       {
         path: 'svgicon-example',
         name: 'SvgIconExample',
         component: () =>
-          import(/*webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/svgicon/index.vue'),
+          import(
+            /* webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/svgicon/index.vue'
+          ),
         meta: { title: 'svg-icon 自定义图标', icon: '' }
+      },
+      {
+        path: 'render-function',
+        name: 'RenderFunction',
+        component: () =>
+          import(
+            /* webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/render/index.vue'
+          ),
+        meta: { title: 'render 渲染函数', icon: '' }
       }
     ]
   }
