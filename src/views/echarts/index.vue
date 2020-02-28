@@ -24,11 +24,13 @@ export default {
           data: ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
         },
         yAxis: {},
-        series: [{
-          name: '人数',
-          type: 'bar',
-          data: [5, 6, 7, 8, 9]
-        }]
+        series: [
+          {
+            name: '人数',
+            type: 'bar',
+            data: [5, 6, 7, 8, 9]
+          }
+        ]
       })
     }
   }

@@ -35,6 +35,15 @@ export const routes = [
             /* webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/render/index.vue'
           ),
         meta: { title: 'render 渲染函数', icon: '' }
+      },
+      {
+        path: 'npm-components',
+        name: 'NpmComponents',
+        component: () =>
+          import(
+            /* webpackChunkName: 'group-other-plugins' */ '@/views/other-plugins/npm-components/color-picker/index.vue'
+          ),
+        meta: { title: 'npm自定义组价库——颜色选择', icon: '' }
       }
     ]
   }

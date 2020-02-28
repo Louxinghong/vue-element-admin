@@ -4,6 +4,7 @@ export default {
   inserted (el, binding, vnode) {
     const { value } = binding
     const permissions = store.getters.permissions
+    // const permissions = []
 
     if (value === false || value === undefined || value === null) {
       return
