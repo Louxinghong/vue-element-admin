@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <div id="main"></div>
+    <number-range v-model="range"></number-range>
   </div>
 </template>
 
@@ -8,7 +9,9 @@
 export default {
   name: 'Echarts',
   data () {
-    return {}
+    return {
+      range: [123, 456]
+    }
   },
   mounted () {
     this.drawEcharts()
@@ -24,11 +27,13 @@ export default {
           data: ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
         },
         yAxis: {},
-        series: [{
-          name: '人数',
-          type: 'bar',
-          data: [5, 6, 7, 8, 9]
-        }]
+        series: [
+          {
+            name: '人数',
+            type: 'bar',
+            data: [5, 6, 7, 8, 9]
+          }
+        ]
       })
     }
   }
