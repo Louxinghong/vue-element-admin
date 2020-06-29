@@ -32,15 +32,15 @@ export default {
     }
   },
   computed: {
-    filterable () {
+    filterable() {
       return this.filterData.length > 0
     }
   },
   methods: {
-    onSearch () {
+    onSearch() {
       console.log(this.filterOptions)
     },
-    onReset () {}
+    onReset() {}
   }
 }
 </script>

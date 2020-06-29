@@ -35,7 +35,7 @@
 <script>
 export default {
   name: 'JsTest',
-  data () {
+  data() {
     return {
       timer: setInterval(this.move, 2000),
       timer1: null,
@@ -45,14 +45,14 @@ export default {
       speed: 0
     }
   },
-  mounted () {
+  mounted() {
     this.buttonShow()
   },
-  destroyed () {
+  destroyed() {
     clearInterval(this.timer)
   },
   methods: {
-    onLeft () {
+    onLeft() {
       this.moveTarget = 400
       this.target = this.moveTarget + this.cur
       if (this.target >= 380) {
@@ -62,7 +62,7 @@ export default {
       this.sport(this.target)
       this.buttonShow()
     },
-    onRight () {
+    onRight() {
       this.moveTarget = -400
       this.target = this.moveTarget + this.cur
       if (this.target <= -1200) {
@@ -72,12 +72,12 @@ export default {
       this.sport(this.target)
       this.buttonShow()
     },
-    onOlLiMove (index) {
+    onOlLiMove(index) {
       this.target = -(index * 400)
       this.sport(this.target)
       this.buttonShow()
     },
-    move () {
+    move() {
       if (this.target <= -1200) {
         this.cur = 0
         this.target = -400
@@ -87,7 +87,7 @@ export default {
       this.sport(this.target)
       this.buttonShow()
     },
-    sport (data) {
+    sport(data) {
       clearInterval(this.timer1)
       this.timer1 = setInterval(() => {
         if (this.cur === data) {
@@ -99,7 +99,7 @@ export default {
         }
       }, 20)
     },
-    buttonShow () {
+    buttonShow() {
       var olLi = document.getElementById('olTag').getElementsByTagName('li')
       var index = -Math.round(this.target / 400)
       console.log(index)
@@ -109,10 +109,10 @@ export default {
       }
       olLi[index].style.background = '#ffffff'
     },
-    onMouseOver () {
+    onMouseOver() {
       clearInterval(this.timer)
     },
-    onMouseOut () {
+    onMouseOut() {
       this.timer = setInterval(this.move, 2000)
     }
   }

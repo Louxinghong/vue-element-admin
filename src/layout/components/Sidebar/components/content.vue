@@ -49,7 +49,7 @@
 <script>
 export default {
   name: 'SideBarItem',
-  data () {
+  data() {
     return {
       childrenroute: []
     }
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     // 判断是否有子路由
-    hasChildren (data) {
+    hasChildren(data) {
       if (data.children) {
         return true
       } else {
@@ -75,7 +75,7 @@ export default {
     },
 
     // 判断是否只有一个子路由
-    hasOneChildren (data) {
+    hasOneChildren(data) {
       if (data.children) {
         data = data.children
         if (data.children) {
@@ -88,7 +88,7 @@ export default {
     },
 
     // 判断是否不存在子路由
-    hasNoChildren (data) {
+    hasNoChildren(data) {
       if (data.chidlren) {
         return false
       } else {
@@ -97,7 +97,7 @@ export default {
     },
 
     // 总路径
-    totalPath (data, item) {
+    totalPath(data, item) {
       return data + '/' + item
     }
   }

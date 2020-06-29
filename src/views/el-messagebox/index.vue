@@ -10,13 +10,13 @@ import { getCnodeNews } from '@/api/news'
 
 export default {
   name: 'ElementMessagebox',
-  data () {
+  data() {
     return {
       loading: false
     }
   },
   methods: {
-    openOne () {
+    openOne() {
       this.$prompt('请输入邮箱', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -34,14 +34,14 @@ export default {
         })
       })
     },
-    openTwo () {
+    openTwo() {
       this.loading = true
       this.$prompt('请输入展期审核利率', '确认信息', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         inputPattern: /[^\u4e00-\u9fa5]+/,
         inputErrorMessage: '利率格式不正确',
-        beforeClose: async (action, instance, done) => {
+        beforeClose: async(action, instance, done) => {
           if (action === 'confirm') {
             try {
               instance.confirmButtonLoading = true

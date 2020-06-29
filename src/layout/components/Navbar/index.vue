@@ -36,7 +36,7 @@ export default {
     Person
   },
   computed: {
-    isCollapse () {
+    isCollapse() {
       return this.$store.state.status.isCollapse
     }
   },

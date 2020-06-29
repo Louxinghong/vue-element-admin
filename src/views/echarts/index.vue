@@ -8,16 +8,16 @@
 <script>
 export default {
   name: 'Echarts',
-  data () {
+  data() {
     return {
       range: [123, 456]
     }
   },
-  mounted () {
+  mounted() {
     this.drawEcharts()
   },
   methods: {
-    drawEcharts () {
+    drawEcharts() {
       const myChart = this.$echarts.init(document.getElementById('main'))
 
       myChart.setOption({

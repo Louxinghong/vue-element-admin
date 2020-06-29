@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'ProjectLogo',
-  data () {
+  data() {
     return {
       title: '管理系统'
     }

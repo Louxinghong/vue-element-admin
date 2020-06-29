@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'PersonInfoPersonCenter',
-  data () {
+  data() {
     return {
       avatarUrl: require('../../../images/avatar.jpg'),
       size: 'medium'

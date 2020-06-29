@@ -12,23 +12,23 @@ import screenfull from 'screenfull'
 
 export default {
   name: 'Screenfull',
-  data () {
+  data() {
     return {
       isFullscreen: false
     }
   },
-  mounted () {
+  mounted() {
     this.init()
   },
   methods: {
-    init () {
+    init() {
       if (screenfull.isEnabled) {
         screenfull.on('change', () => {
           this.isFullscreen = screenfull.isFullscreen
         })
       }
     },
-    handleClick () {
+    handleClick() {
       if (!screenfull.isEnabled) {
         this.$message({
           message: '该浏览器不支持全屏功能',

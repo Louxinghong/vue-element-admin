@@ -8,7 +8,7 @@
 import icons from '@/icons/index.js'
 export default {
   name: 'SvgIconExample',
-  data () {
+  data() {
     return {
       icons: icons
     }

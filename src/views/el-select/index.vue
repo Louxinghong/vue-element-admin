@@ -40,7 +40,7 @@
 import { setTimeout } from 'timers'
 export default {
   name: 'ElementSelect',
-  data () {
+  data() {
     return {
       commonOptions: [
         {
@@ -89,13 +89,13 @@ export default {
       ]
     }
   },
-  mounted () {
+  mounted() {
     this.list = this.states.map(item => {
       return { value: item, label: item }
     })
   },
   methods: {
-    remoteMethod (query) {
+    remoteMethod(query) {
       if (query !== '') {
         this.loading = true
         setTimeout(() => {

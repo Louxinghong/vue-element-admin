@@ -16,7 +16,7 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Breadcrumb',
-  data () {
+  data() {
     return {
       breadcrumbs: null
     }
@@ -25,18 +25,18 @@ export default {
     ...mapState('status', ['isCollapse'])
   },
   watch: {
-    $route () {
+    $route() {
       this.getroutepath()
     }
   },
-  created () {
+  created() {
     this.getroutepath()
   },
   methods: {
     ...mapActions('status', ['changeCollapse']),
 
     // 生成面包屑
-    getroutepath () {
+    getroutepath() {
       let matched = this.$route.matched.filter(item => item.name)
       const firstpath = matched[0]
       if (firstpath && firstpath.name !== 'Dashboard') {
@@ -46,10 +46,10 @@ export default {
       }
       this.breadcrumbs = matched.filter(item => item.meta && item.meta.title)
     },
-    gotoPath (data) {
+    gotoPath(data) {
       this.$router.push(data)
     },
-    onChangeSetting () {
+    onChangeSetting() {
       this.$store.dispatch('status/changeDrawer')
     }
   }

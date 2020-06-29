@@ -19,7 +19,7 @@ import { optionsDict } from '@/utils'
 
 export default {
   name: 'TableDetailTest',
-  data () {
+  data() {
     return {
       loading: false,
       filterData: [
@@ -123,13 +123,13 @@ export default {
       ]
     }
   },
-  created () {
+  created() {
     const addressStatus = dictToOptions(ADDRESS_STATUS)
     console.log(addressStatus)
     optionsDict(this.filterData, 'address', 'options', addressStatus)
   },
   methods: {
-    onPostgraduate () {
+    onPostgraduate() {
       this.$notify.success({ title: '成功', message: '考研成功' })
     }
   }

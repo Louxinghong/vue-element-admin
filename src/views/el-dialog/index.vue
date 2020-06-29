@@ -14,7 +14,7 @@ export default {
   components: {
     Dialog
   },
-  data () {
+  data() {
     return {
       showDialog: false,
       dialogType: 0,
@@ -41,17 +41,17 @@ export default {
     }
   },
   methods: {
-    onClose (reload, data) {
+    onClose(reload, data) {
       if (reload) {
         this.dialogData = [data.title, data.name]
       }
       this.showDialog = false
     },
-    onAddOpen () {
+    onAddOpen() {
       this.dialogType = 0
       this.showDialog = true
     },
-    onEditOpen () {
+    onEditOpen() {
       this.dialogData = this.formData.elementData
       this.dialogType = 1
       this.showDialog = true

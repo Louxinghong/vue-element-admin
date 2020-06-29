@@ -34,7 +34,7 @@ import { getNews, getTest } from '@/api/news'
 
 export default {
   name: 'ElementPagination',
-  data () {
+  data() {
     return {
       loading: false,
       tableHeight: null,
@@ -47,11 +47,11 @@ export default {
       tableData: []
     }
   },
-  created () {
+  created() {
     this.onGetNews()
   },
   methods: {
-    async onGetNews () {
+    async onGetNews() {
       const documentHeight = document.body.clientHeight
 
       this.tableHeight = documentHeight - 180
@@ -72,7 +72,7 @@ export default {
         this.loading = false
       }
     },
-    setPageData () {
+    setPageData() {
       this.pageContent = {
         total: this.allData.length,
         currentPage: 1,
@@ -82,7 +82,7 @@ export default {
         return index < this.pageContent.pageSize
       })
     },
-    onCurrentChange (val) {
+    onCurrentChange(val) {
       this.tableData = this.allData.filter((item, index) => {
         return (
           index >= (val - 1) * this.pageContent.pageSize &&
@@ -91,14 +91,14 @@ export default {
       })
       this.pageContent.currentPage = val
     },
-    onSizeChange (val) {
+    onSizeChange(val) {
       this.pageContent.pageSize = val
       this.pageContent.currentPage = 1
       this.tableData = this.allData.filter((item, index) => {
         return index < this.pageContent.pageSize
       })
     },
-    async onTest () {
+    async onTest() {
       await getTest()
     }
   }

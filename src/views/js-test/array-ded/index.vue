@@ -20,7 +20,7 @@ import { cloneDeep } from 'lodash'
 
 export default {
   name: 'ArrayDeduplication',
-  data () {
+  data() {
     return {
       name: '123',
       array: [1, 3, 4, 1, 2, 3, 5, 1],
@@ -30,18 +30,18 @@ export default {
       result2: []
     }
   },
-  created () {
+  created() {
     this.array1 = cloneDeep(this.array)
     this.array2 = cloneDeep(this.array)
   },
   methods: {
-    onFilter () {
+    onFilter() {
       this.result1 = []
       this.array.filter((item, index) => {
         this.array.indexOf(item) === index ? this.result1.push(item) : ''
       })
     },
-    onSet () {
+    onSet() {
       this.result2 = []
       this.result2 = Array.from(new Set(this.array2)) // 或者携程this.result2 = [...new Set(array)]
     }

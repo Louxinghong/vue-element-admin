@@ -27,7 +27,7 @@ import SideBarContent from './components/content'
 import ProjectLogo from './components/projectLogo'
 export default {
   name: 'SideBar',
-  data () {
+  data() {
     return {
       color: ''
     }
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapState('status', ['isCollapse', 'routes']),
-    activedPath () {
+    activedPath() {
       const { path } = this.$route
       return path
     }

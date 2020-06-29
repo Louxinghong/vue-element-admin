@@ -13,10 +13,10 @@
 export default {
   name: 'Error404',
   methods: {
-    onGoBack () {
+    onGoBack() {
       this.$router.go(-1)
     },
-    onGoHome () {
+    onGoHome() {
       this.$router.replace('/')
     }
   }

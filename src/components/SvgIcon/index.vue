@@ -25,10 +25,10 @@ export default {
     // isExternal() {
     //   return isExternal(this.iconClass)
     // },
-    iconName () {
+    iconName() {
       return `#icon-${this.iconClass}`
     },
-    svgClass () {
+    svgClass() {
       if (this.className) {
         return 'svg-icon' + this.className
       } else {

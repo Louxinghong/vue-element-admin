@@ -37,7 +37,7 @@ import { setToken, getToken } from '@/utils/auth.js'
 
 export default {
   name: 'Login',
-  data () {
+  data() {
     return {
       loading: false,
       form: {
@@ -54,7 +54,7 @@ export default {
     }
   },
   methods: {
-    onLogin () {
+    onLogin() {
       this.$refs.form.validate(async valid => {
         if (valid) {
           this.loading = true

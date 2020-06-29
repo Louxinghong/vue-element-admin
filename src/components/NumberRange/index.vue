@@ -32,7 +32,7 @@ export default {
       default: '60px'
     }
   },
-  data () {
+  data() {
     return {
       from: '',
       to: ''
@@ -40,7 +40,7 @@ export default {
   },
   watch: {
     data: {
-      handler: function (val) {
+      handler: function(val) {
         console.log(val)
         this.$nextTick(() => {
           this.from = val[0]
@@ -51,7 +51,7 @@ export default {
     }
   },
   methods: {
-    onChange (val) {
+    onChange(val) {
       this.$emit('change', [this.from, this.to])
     }
   }

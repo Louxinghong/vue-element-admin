@@ -21,17 +21,17 @@
 <script>
 export default {
   name: 'ElementUpload',
-  data () {
+  data() {
     return {
       dialogImageUrl: '',
       dialogVisible: false
     }
   },
   methods: {
-    handleRemove (file, fileList) {
+    handleRemove(file, fileList) {
       console.log(file, fileList)
     },
-    handlePictureCardPreview (file) {
+    handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url
       this.dialogVisible = true
     }

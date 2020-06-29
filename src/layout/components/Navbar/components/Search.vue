@@ -27,7 +27,7 @@ import path from 'path'
 
 export default {
   name: 'Search',
-  data () {
+  data() {
     return {
       show: false,
       search: '',
@@ -37,29 +37,29 @@ export default {
     }
   },
   computed: {
-    routers () {
+    routers() {
       return this.$store.state.status.routes
     }
   },
   watch: {
     show: {
-      handler: function (val) {
+      handler: function(val) {
         val
           ? document.body.addEventListener('click', this.handleClose)
           : document.body.removeEventListener('click', this.handleClose)
       }
     },
     searchPool: {
-      handler: function (val) {
+      handler: function(val) {
         this.initFuse(val)
       }
     }
   },
-  mounted () {
+  mounted() {
     this.searchPool = this.generateRoutes(this.routers)
   },
   methods: {
-    initFuse (list) {
+    initFuse(list) {
       this.fuse = new Fuse(list, {
         shouldSort: true,
         threshold: 0.4,
@@ -79,7 +79,7 @@ export default {
         ]
       })
     },
-    generateRoutes (routers, basePath = '/', prefixTitle = []) {
+    generateRoutes(routers, basePath = '/', prefixTitle = []) {
       let res = []
 
       for (const router of routers) {
@@ -114,22 +114,22 @@ export default {
       }
       return res
     },
-    handleClick () {
+    handleClick() {
       this.show = !this.show
 
       if (this.show) {
         this.$refs.select && this.$refs.select.focus()
       }
     },
-    handleClose () {
+    handleClose() {
       this.$refs.select && this.$refs.select.blur()
       this.options = []
       this.show = false
     },
-    querySearch (query) {
+    querySearch(query) {
       this.options = query !== '' ? this.fuse.search(query) : []
     },
-    handleChange (val) {
+    handleChange(val) {
       this.$router.push(val.path)
       this.search = ''
       this.options = []

@@ -23,7 +23,7 @@ import BackToTop from '@/layout/components/Backtotop/index.vue'
 
 export default {
   name: 'Layout',
-  data () {
+  data() {
     return {}
   },
   mixins: [adaptation],
@@ -36,16 +36,16 @@ export default {
     BackToTop
   },
   computed: {
-    isCollapse () {
+    isCollapse() {
       return this.$store.state.status.isCollapse
     },
-    isCloseSidebar () {
+    isCloseSidebar() {
       return this.$store.state.status.isCloseSidebar
     },
-    isMobile () {
+    isMobile() {
       return this.$store.getters.isMobile
     },
-    classAll () {
+    classAll() {
       return {
         mobile: this.isMobile,
         isCollapse: this.isCollapse
@@ -54,7 +54,7 @@ export default {
   },
   watch: {
     isCloseSidebar: {
-      handler: function (val) {
+      handler: function(val) {
         if (val && !this.isCollapse) {
           this.$store.dispatch('status/changeCollapse')
         }
@@ -62,7 +62,7 @@ export default {
     }
   },
   methods: {
-    handleCollapse () {
+    handleCollapse() {
       this.$store.dispatch('status/changeCollapse')
     }
   }

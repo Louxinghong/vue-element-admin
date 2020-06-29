@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'MainContainer',
-  data () {
+  data() {
     return {}
   }
 }

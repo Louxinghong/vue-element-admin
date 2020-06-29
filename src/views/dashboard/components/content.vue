@@ -11,13 +11,13 @@
 // import { isEqual } from 'lodash'
 export default {
   name: 'Content',
-  data () {
+  data() {
     return {
       finished: 'green',
       unfinished: '#99a9bf'
     }
   },
-  created () {
+  created() {
     // const length = document.body.getBoundingClientRect()
     // console.log(length)
   },

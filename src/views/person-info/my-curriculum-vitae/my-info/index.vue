@@ -9,14 +9,14 @@
 <script>
 export default {
   name: 'MyInfo',
-  data () {
+  data() {
     return {
       test: 'begin',
       testTwo: 'nothing'
     }
   },
   methods: {
-    handleTest () {
+    handleTest() {
       this.test = 'end'
       this.testTwo = this.test
       this.$nextTick(() => {

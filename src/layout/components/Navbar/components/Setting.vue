@@ -8,7 +8,7 @@
 export default {
   name: 'Setting',
   methods: {
-    onChangeSetting () {
+    onChangeSetting() {
       this.$store.dispatch('status/changeDrawer')
     }
   }

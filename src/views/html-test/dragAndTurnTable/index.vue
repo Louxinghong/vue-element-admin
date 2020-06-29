@@ -49,7 +49,7 @@
 import { setTimeout } from 'timers'
 export default {
   name: 'HtmlTest',
-  data () {
+  data() {
     return {
       list: [
         '1: lgg',
@@ -80,21 +80,21 @@ export default {
     }
   },
   computed: {
-    roatetAngle () {
+    roatetAngle() {
       return `rotate(${this.rotateNums}deg)`
     },
-    rotateTransition () {
+    rotateTransition() {
       return '5s'
     }
   },
   methods: {
-    allowDrop (e) {
+    allowDrop(e) {
       e.preventDefault()
     },
-    dragStart (e) {
+    dragStart(e) {
       e.dataTransfer.setData('Text', e.target.id)
     },
-    drop (e) {
+    drop(e) {
       this.allowDrop(e)
       var data = e.dataTransfer.getData('Text')
       e.target.appendChild(document.getElementById(data))
@@ -112,20 +112,20 @@ export default {
     //   arr.splice(index, 0, temp[0])
     //   this.list = arr
     // }
-    onStart () {
+    onStart() {
       this.drawAward()
       this.isLottery = true
       this.time = Date.now()
       this.speed = 200
       this.diff = 15
     },
-    drawAward () {
+    drawAward() {
       setTimeout(() => {
         this.award = this.awards[3]
       }, 1000)
       this.move()
     },
-    move () {
+    move() {
       window.timeout = setTimeout(() => {
         this.select++
         if (this.select > 7) {
@@ -147,7 +147,7 @@ export default {
         this.move()
       }, this.speed)
     },
-    onRotate () {
+    onRotate() {
       // this.isRotate = !this.isRotate 若为false就恢复初始样式
       this.rotateNums = this.rotateNums + (Math.random() + 60) * 70
     }

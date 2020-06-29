@@ -13,13 +13,13 @@
 <script>
 export default {
   name: 'CssTest',
-  data () {
+  data() {
     return {
       isChanged: false
     }
   },
   methods: {
-    handleStyle () {
+    handleStyle() {
       this.isChanged = !this.isChanged
     }
   }

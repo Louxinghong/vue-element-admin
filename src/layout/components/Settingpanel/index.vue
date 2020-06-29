@@ -13,27 +13,27 @@
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'SettingPanel',
-  data () {
+  data() {
     return {}
   },
   computed: {
     // 通过判断屏幕尺寸来改变设置栏的宽度
-    size () {
+    size() {
       return this.$store.getters.isMobile ? '50%' : '400px'
     },
     showDrawer: {
-      get () {
+      get() {
         return this.$store.state.status.showDrawer
       },
-      set (val) {
+      set(val) {
         this.$store.dispatch('status/changeDrawer')
       }
     },
     isCollapse: {
-      get () {
+      get() {
         return this.$store.state.status.isCollapse
       },
-      set (val) {
+      set(val) {
         this.$store.dispatch('status/changeCollapse')
       }
     }

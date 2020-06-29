@@ -26,7 +26,7 @@ export default {
     OperationContainer,
     TableContainer
   },
-  provide () {
+  provide() {
     return {
       filterData: this.filterData,
       filterOptions: this.filterOptions,
@@ -51,12 +51,12 @@ export default {
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       filterOptions: {}
     }
   },
-  created () {
+  created() {
     const { filterData, filterOptions, $set } = this
     filterData.forEach(item => {
       item.trigger

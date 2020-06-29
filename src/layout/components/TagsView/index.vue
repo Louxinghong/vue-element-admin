@@ -46,7 +46,7 @@
 <script>
 export default {
   name: 'TagsView',
-  data () {
+  data() {
     return {
       visible: false,
       contextTop: 0,
@@ -58,37 +58,37 @@ export default {
     }
   },
   computed: {
-    visitedViews () {
+    visitedViews() {
       return this.$store.state.tagsView.visitedViews
     },
-    routers () {
+    routers() {
       return this.$store.state.status.routes
     }
   },
   watch: {
     $route: {
-      handler: function () {
+      handler: function() {
         this.addTags()
         this.moveToCurrentTag()
       }
     },
     visible: {
-      handler: function (val) {
+      handler: function(val) {
         val
           ? document.body.addEventListener('click', this.closeContext)
           : document.body.removeEventListener('click', this.closeContext)
       }
     }
   },
-  mounted () {
+  mounted() {
     this.initTags()
     this.addTags()
   },
   methods: {
-    isActive (route) {
+    isActive(route) {
       return route.path === this.$route.path
     },
-    filterAffixTags (routes, basePath = '/') {
+    filterAffixTags(routes, basePath = '/') {
       let tags = []
 
       routes.forEach(route => {
@@ -110,7 +110,7 @@ export default {
       })
       return tags
     },
-    initTags () {
+    initTags() {
       this.affixTags = this.filterAffixTags(this.routers)
       for (const tag of this.affixTags) {
         if (tag.name) {
@@ -118,14 +118,14 @@ export default {
         }
       }
     },
-    addTags () {
+    addTags() {
       const { name } = this.$route
       if (name) {
         this.$store.dispatch('tagsView/addView', this.$route)
       }
       return false
     },
-    moveToCurrentTag () {
+    moveToCurrentTag() {
       const tags = this.$refs.tag
 
       this.$nextTick(() => {
@@ -141,7 +141,7 @@ export default {
         }
       })
     },
-    moveToTarget (tag) {
+    moveToTarget(tag) {
       const outerWidth = this.$refs.scrollOuter.offsetWidth
       const bodyWidth = this.$refs.scrollBody.offsetWidth
 
@@ -167,7 +167,7 @@ export default {
         )
       }
     },
-    handlescroll (e) {
+    handlescroll(e) {
       const type = e.type
       let delta = 0
       if (type === 'DOMMouseScroll' || type === 'mousewheel') {
@@ -175,7 +175,7 @@ export default {
       }
       this.handleScroll(delta)
     },
-    handleScroll (offset) {
+    handleScroll(offset) {
       const outerWidth = this.$refs.scrollOuter.offsetWidth
       const bodyWidth = this.$refs.scrollBody.offsetWidth
       if (offset > 0) {
@@ -195,7 +195,7 @@ export default {
         }
       }
     },
-    openContext (tag, e) {
+    openContext(tag, e) {
       const menuMinWidth = 105
       const offsetLeft = this.$el.getBoundingClientRect().left
       const offsetWidth = this.$el.offsetWidth
@@ -212,10 +212,10 @@ export default {
       this.visible = true
       this.selectedTag = tag
     },
-    closeContext () {
+    closeContext() {
       this.visible = false
     },
-    refreshSelectedTag (view) {
+    refreshSelectedTag(view) {
       this.$store.dispatch('tagsView/delCachedView', view).then(() => {
         const { fullPath } = view
 
@@ -226,7 +226,7 @@ export default {
         })
       })
     },
-    closeSelectedTag (view) {
+    closeSelectedTag(view) {
       this.$store
         .dispatch('tagsView/delView', view)
         .then(({ visitedViews }) => {
@@ -235,13 +235,13 @@ export default {
           }
         })
     },
-    closeOthersTags (view) {
+    closeOthersTags(view) {
       this.$router.push(view)
       this.$store.dispatch('tagsView/delOthersViews', view).then(() => {
         this.moveToCurrentTag()
       })
     },
-    closeAllTags (view) {
+    closeAllTags(view) {
       this.$store.dispatch('tagsView/delAllViews').then(({ visitedViews }) => {
         if (this.affixTags.some(tag => tag.path === view.path)) {
           return
@@ -249,7 +249,7 @@ export default {
         this.toLastView(visitedViews, view)
       })
     },
-    toLastView (visitedViews, view) {
+    toLastView(visitedViews, view) {
       const latestView = visitedViews.slice(-1)[0]
 
       if (latestView) {

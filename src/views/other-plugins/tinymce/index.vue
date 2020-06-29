@@ -9,14 +9,14 @@
 <script>
 export default {
   name: 'TinymceEditor',
-  data () {
+  data() {
     return {
       tinymceContent: ''
     }
   },
   watch: {
     tinymceContent: {
-      handler: function (val) {
+      handler: function(val) {
         // console.log( val )
       },
       immediate: true

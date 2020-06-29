@@ -10,44 +10,44 @@ export default {
     isCloseSidebar: false
   },
   getters: {
-    isCollapse (state) {
+    isCollapse(state) {
       return state.isCollapse
     },
-    isShowDrawer (state) {
+    isShowDrawer(state) {
       return state.showDrawer
     },
-    getScreenType (state) {
+    getScreenType(state) {
       return state.screenType
     },
-    isCloseSidebar (state) {
+    isCloseSidebar(state) {
       return state.isCloseSidebar
     }
   },
   mutations: {
-    CHANGECOLLAPSE (state) {
+    CHANGECOLLAPSE(state) {
       state.isCollapse = !state.isCollapse
     },
-    SHOWDRAWER (state) {
+    SHOWDRAWER(state) {
       state.showDrawer = !state.showDrawer
     },
-    CHANGESCREENTYPE (state, type) {
+    CHANGESCREENTYPE(state, type) {
       state.screenType = type
     },
-    CHANGESIDEBARSTATUS (state, type) {
+    CHANGESIDEBARSTATUS(state, type) {
       state.isCloseSidebar = type
     }
   },
   actions: {
-    changeCollapse ({ commit }) {
+    changeCollapse({ commit }) {
       commit('CHANGECOLLAPSE')
     },
-    changeDrawer ({ commit }) {
+    changeDrawer({ commit }) {
       commit('SHOWDRAWER')
     },
-    changeScreenType ({ commit }, type) {
+    changeScreenType({ commit }, type) {
       commit('CHANGESCREENTYPE', type)
     },
-    changeSidebarStatus ({ commit }, type) {
+    changeSidebarStatus({ commit }, type) {
       commit('CHANGESIDEBARSTATUS', type)
     }
   }

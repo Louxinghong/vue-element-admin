@@ -38,18 +38,18 @@
 <script>
 export default {
   name: 'ErrorLog',
-  data () {
+  data() {
     return {
       show: false
     }
   },
   computed: {
-    logs () {
+    logs() {
       return this.$store.state.errorLog.logs
     }
   },
   methods: {
-    handleClear () {
+    handleClear() {
       this.$store.dispatch('errorLog/clearErrorLog')
     }
   }

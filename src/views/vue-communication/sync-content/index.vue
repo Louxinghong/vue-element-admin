@@ -17,13 +17,13 @@ export default {
   components: {
     Child
   },
-  data () {
+  data() {
     return {
       title: 'I am father title.'
     }
   },
   methods: {
-    onChangeTitle () {
+    onChangeTitle() {
       this.title = 'I am father change-title'
     }
   }

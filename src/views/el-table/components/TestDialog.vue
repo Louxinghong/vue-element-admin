@@ -41,7 +41,7 @@ export default {
       type: Object
     }
   },
-  data () {
+  data() {
     return {
       form: {
         title: '',
@@ -57,7 +57,7 @@ export default {
   },
   watch: {
     type: {
-      handler: function (val) {
+      handler: function(val) {
         if (val === 1) {
           this.$nextTick(() => {
             this.form = cloneDeep(this.data)
@@ -68,14 +68,14 @@ export default {
     }
   },
   methods: {
-    onClose (reload) {
+    onClose(reload) {
       this.$refs.form.resetFields()
       this.$emit('close', typeof reload === 'function' ? false : reload)
     },
-    onCancel () {
+    onCancel() {
       this.onClose()
     },
-    onSubmit () {
+    onSubmit() {
       this.$refs.form.validate(valid => {
         if (valid) {
         }

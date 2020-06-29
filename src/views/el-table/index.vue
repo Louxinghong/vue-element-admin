@@ -118,7 +118,7 @@ export default {
     TestDialog,
     TableDetailTest
   },
-  data () {
+  data() {
     return {
       tableData: [
         {
@@ -163,47 +163,47 @@ export default {
   },
 
   methods: {
-    handleChangeNums (val) {
+    handleChangeNums(val) {
       this.allShoppingsPrice = 0
       this.multipleSelection.forEach(
         item => this.allShoppingsPrice += item.num * item.singlePrice
       )
     },
-    onEdit (scope) {
+    onEdit(scope) {
       const { row, $index } = scope
       this.selectRecord = cloneDeep(row)
       this.$set(this.tableData[$index], 'isEdit', true)
     },
-    onDelete (index, data) {
+    onDelete(index, data) {
       data.splice(index, 1)
     },
-    onCancel (index) {
+    onCancel(index) {
       this.selectRecord.isEdit = false
       this.$set(this.tableData, index, cloneDeep(this.selectRecord))
       this.selectRecord = {}
     },
-    onSubmit (scope) {
+    onSubmit(scope) {
       const { row, $index } = scope
       this.tableData[$index].isEdit = false
       delete this.tableData[$index].isEdit
     },
-    handleSelectionChange (val) {
+    handleSelectionChange(val) {
       this.multipleSelection = val
       this.allShoppingsPrice = 0
       this.multipleSelection.forEach(
         item => this.allShoppingsPrice += item.num * item.singlePrice
       )
     },
-    onAddDialog () {
+    onAddDialog() {
       this.showDialogType = 0
       this.showDialog = true
     },
-    onEditDialog (data) {
+    onEditDialog(data) {
       this.showDialogType = 1
       this.showDialog = true
       this.testData = cloneDeep(data)
     },
-    onCloseTestDialog (reload) {
+    onCloseTestDialog(reload) {
       this.showDialogType = 0
       this.showDialog = false
       this.testData = {}

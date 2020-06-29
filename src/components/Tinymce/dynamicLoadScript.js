@@ -1,12 +1,12 @@
 let callbacks = []
 
-function loadedTinymce () {
+function loadedTinymce() {
   return window.tinymce
 }
 
 const dynamicLoadScript = (src, callback) => {
   const existingScript = document.getElementById(src)
-  const cb = callback || function () {}
+  const cb = callback || function() {}
 
   if (!existingScript) {
     const script = document.createElement('script')
@@ -26,22 +26,22 @@ const dynamicLoadScript = (src, callback) => {
     }
   }
 
-  function stdOnEnd (script) {
-    script.onload = function () {
+  function stdOnEnd(script) {
+    script.onload = function() {
       this.onerror = this.onload = null
       for (const cb of callbacks) {
         cb(null, script)
       }
       callbacks = null
     }
-    script.onerror = function () {
+    script.onerror = function() {
       this.onerror = this.onload = null
       cb(new Error('Failed to load ' + src), script)
     }
   }
 
-  function ieOnEnd (script) {
-    script.onreadystatechange = function () {
+  function ieOnEnd(script) {
+    script.onreadystatechange = function() {
       if (this.readyState !== 'complete' && this.readyState !== 'loaded') return
       this.onreadystatechange = null
       for (const cb of callbacks) {

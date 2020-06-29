@@ -30,7 +30,7 @@ export default {
       type: Array
     }
   },
-  data () {
+  data() {
     return {
       form: {
         title: {
@@ -60,13 +60,13 @@ export default {
   },
   watch: {
     isSubmit: {
-      handler: function (val) {
+      handler: function(val) {
         // console.log(val)
       },
       immediate: true
     },
     type: {
-      handler: function (val) {
+      handler: function(val) {
         if (val === 1) {
           this.form.title.elementValue = this.data.find(
             item =>
@@ -82,14 +82,14 @@ export default {
     }
   },
   methods: {
-    onClose (reload) {
+    onClose(reload) {
       this.$refs.form.resetFields()
       this.$emit('close', typeof reload === 'function' ? false : reload, this.form)
     },
-    onCancel () {
+    onCancel() {
       this.onClose(false)
     },
-    onSubmit () {
+    onSubmit() {
       this.$refs.form.validate(valid => {
         if (valid) {
           try {

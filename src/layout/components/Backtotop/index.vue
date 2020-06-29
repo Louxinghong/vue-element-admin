@@ -7,13 +7,13 @@
 <script>
 export default {
   name: 'BackToTop',
-  data () {
+  data() {
     return {
       visible: false,
       visibleOffset: 120
     }
   },
-  mounted () {
+  mounted() {
     // 屏幕滚动
     window.smoothscroll = () => {
       let currentScroll =
@@ -28,14 +28,14 @@ export default {
       window.addEventListener('scroll', this.onScroll)
     })
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    onScroll () {
+    onScroll() {
       this.visible = window.pageYOffset > parseInt(this.visibleOffset)
     },
-    onBackToTop () {
+    onBackToTop() {
       window.smoothscroll()
     }
   }

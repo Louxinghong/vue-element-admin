@@ -10,20 +10,20 @@
 <script>
 export default {
   name: 'ElementMessage',
-  data () {
+  data() {
     return {}
   },
   methods: {
-    async openMessage1 () {
+    async openMessage1() {
       this.$message({ message: '这是一个成功的信息提醒' })
     },
-    openMessage2 () {
+    openMessage2() {
       this.$message({ type: 'success', message: '这是一个成功的信息提醒' })
     },
-    openMessage3 () {
+    openMessage3() {
       this.$message({ type: 'warning', message: '这是一个成功的信息提醒' })
     },
-    openMessage4 () {
+    openMessage4() {
       this.$message({ type: 'error', message: '这是一个成功的信息提醒' })
     }
   }

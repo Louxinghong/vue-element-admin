@@ -18,7 +18,7 @@ export default {
     }
   },
   methods: {
-    onChangeFatherTitle () {
+    onChangeFatherTitle() {
       this.$emit('update:title', '这是在子组件内改变父组件的title')
     }
   }
