@@ -1,29 +1,33 @@
 <template>
-  <div :class="{fullscreen: fullscreen}" class="tinymce-container" :style="{width: containerWidth}">
+  <div
+    :class="{ fullscreen: fullscreen }"
+    class="tinymce-container"
+    :style="{ width: containerWidth }"
+  >
     <textarea :id="tinymceId" class="tinymce-textarea" />
   </div>
 </template>
 
 <script>
-import plugins from './plugins'
-import toolbar from './toolbar'
-import load from './dynamicLoadScript'
+import plugins from "./plugins";
+import toolbar from "./toolbar";
+import load from "./dynamicLoadScript";
 
 const tinymceCDN =
-  'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js'
+  "https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js";
 
 export default {
-  name: 'Tinymce',
+  name: "Tinymce",
   global: true,
   props: {
     id: {
       type: String,
       default:
-        'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
+        "vue-tinymce-" + +new Date() + ((Math.random() * 1000).toFixed(0) + "")
     },
     value: {
       type: String,
-      default: ''
+      default: ""
     },
     toolbar: {
       type: Array,
@@ -32,7 +36,7 @@ export default {
     },
     menubar: {
       type: String,
-      default: 'file edit insert view format table'
+      default: "file edit insert view format table"
     },
     height: {
       type: [Number, String],
@@ -42,120 +46,124 @@ export default {
     width: {
       type: [Number, String],
       required: false,
-      default: 'auto'
+      default: "auto"
     }
   },
-  data () {
+  data() {
     return {
       hasChange: false,
       hasInit: false,
       tinymceId: this.id,
       fullscreen: false,
       languageTypeList: {
-        en: 'en',
-        zh: 'zh_CN'
+        en: "en",
+        zh: "zh_CN"
       }
-    }
+    };
   },
   computed: {
-    containerWidth () {
-      const width = this.width
+    containerWidth() {
+      const width = this.width;
       if (/^[\d]+(\.[\d]+)?$/.test(width)) {
         // matches `100`, `'100'`
-        return `${width}px`
+        return `${width}px`;
       }
-      return width
+      return width;
     }
   },
   watch: {
-    value (val) {
+    value(val) {
       if (!this.hasChange && this.hasInit) {
         this.$nextTick(() =>
-          window.tinymce.get(this.tinymceId).setContent(val || '')
-        )
+          window.tinymce.get(this.tinymceId).setContent(val || "")
+        );
       }
     }
   },
-  mounted () {
-    this.init()
+  mounted() {
+    this.init();
   },
-  activated () {
+  activated() {
     if (window.tinymce) {
-      this.initTinymce()
+      this.initTinymce();
     }
   },
-  deactivated () {
-    this.destroyTinymce()
+  deactivated() {
+    this.destroyTinymce();
   },
-  destroyed () {
-    this.destroyTinymce()
+  destroyed() {
+    this.destroyTinymce();
   },
   methods: {
-    init () {
+    init() {
       load(tinymceCDN, err => {
         if (err) {
-          this.$message.error(err.message)
-          return
+          this.$message.error(err.message);
+          return;
         }
-        this.initTinymce()
-      })
+        this.initTinymce();
+      });
     },
-    initTinymce () {
-      const _this = this
+    initTinymce() {
+      const _this = this;
       window.tinymce.init({
         selector: `#${this.tinymceId}`,
-        language: this.languageTypeList['zh'],
+        language: this.languageTypeList["zh"],
         height: this.height,
-        body_class: 'panel-body ',
+        body_class: "panel-body ",
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
         plugins: plugins,
         end_container_on_empty_block: true,
-        powerpaste_word_import: 'clean',
+        powerpaste_word_import: "clean",
         code_dialog_height: 450,
         code_dialog_width: 1000,
-        advlist_bullet_styles: 'square',
-        advlist_number_styles: 'default',
-        imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
-        default_link_target: '_blank',
+        advlist_bullet_styles: "square",
+        advlist_number_styles: "default",
+        imagetools_cors_hosts: ["www.tinymce.com", "codepen.io"],
+        default_link_target: "_blank",
         link_title: false,
         nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
+        images_upload_handler: (blobInfo, success) => {
+          const img = "data:image/jpeg;base64," + blobInfo.base64();
+          success(img);
+        },
         init_instance_callback: editor => {
           if (_this.value) {
-            editor.setContent(_this.value)
+            editor.setContent(_this.value);
           }
-          _this.hasInit = true
-          editor.on('NodeChange Change KeyUp SetContent', () => {
-            this.hasChange = true
-            this.$emit('input', editor.getContent())
-          })
+          _this.hasInit = true;
+          editor.on("NodeChange Change KeyUp SetContent", () => {
+            this.hasChange = true;
+            this.$emit("input", editor.getContent());
+          });
         },
         setup: editor => {
-          editor.on('FullscreenStateChanged', e => {
-            _this.fullscreen = e.state
-          })
+          editor.on("FullscreenStateChanged", e => {
+            _this.fullscreen = e.state;
+          });
         }
-      })
+      });
     },
-    destroyTinymce () {
-      const tinymce = window.tinymce.get(this.tinymceId)
+    destroyTinymce() {
+      const tinymce = window.tinymce.get(this.tinymceId);
       if (this.fullscreen) {
-        tinymce.execCommand('mceFullScreen')
+        tinymce.execCommand("mceFullScreen");
       }
 
       if (tinymce) {
-        tinymce.destroy()
+        tinymce.destroy();
       }
     },
-    setContent (value) {
-      window.tinymce.get(this.tinymceId).setContent(value)
+    setContent(value) {
+      window.tinymce.get(this.tinymceId).setContent(value);
     },
-    getContent () {
-      window.tinymce.get(this.tinymceId).getContent()
+    getContent() {
+      window.tinymce.get(this.tinymceId).getContent();
     }
   }
-}
+};
 </script>
 
 <style scoped>
