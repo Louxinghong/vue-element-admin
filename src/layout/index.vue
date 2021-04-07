@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper" :class="classAll">
-    <div class="hideCollapse" v-show="isMobile && !isCollapse" @click="handleCollapse"></div>
+    <div
+      class="hideCollapse"
+      v-show="isMobile && !isCollapse"
+      @click="handleCollapse"
+    ></div>
     <SideBar class="side-container" />
     <div class="main-container">
       <NavBar class="navbar-container" />
@@ -54,7 +58,7 @@ export default {
   },
   watch: {
     isCloseSidebar: {
-      handler: function(val) {
+      handler: function (val) {
         if (val && !this.isCollapse) {
           this.$store.dispatch('status/changeCollapse')
         }

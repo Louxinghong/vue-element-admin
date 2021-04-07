@@ -1,7 +1,12 @@
 <template>
   <div id="content">
     <span class="hiddenornot" @click="changeCollapse">
-      <i :class="{'el-icon-s-unfold': isCollapse, 'el-icon-s-fold': !isCollapse}"></i>
+      <i
+        :class="{
+          'el-icon-s-unfold': isCollapse,
+          'el-icon-s-fold': !isCollapse
+        }"
+      ></i>
     </span>
     <Breadcrumb />
     <div class="right-set">
